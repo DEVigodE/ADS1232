@@ -1,88 +1,58 @@
-# 📘 Lista de Exercícios – Programação Orientada a Objetos (Java)
+# 📚 Repositório de Listas de Exercícios – Programação Orientada a Objetos (Java)
 
-Este projeto contém a implementação de uma lista de exercícios em **Java**, onde cada exercício pede a modelagem de uma classe com atributos, métodos e regras de negócio específicas, além de um **diagrama UML** correspondente.  
+Este repositório reúne todas as listas de exercícios da disciplina de **Programação Orientada a Objetos (POO)** em **Java**.  
 
-O objetivo é praticar **POO (Programação Orientada a Objetos)**: encapsulamento, validação, construtores, cálculos e organização em pacotes.  
-
----
-
-## 📂 Estrutura do Projeto
-
-```
-src/
- └── main/
-     └── java/
-         └── org/devigode/
-             └── App.java                # Classe principal que executa todos os exercícios
-         └── exercicio1/
-             └── Pessoa.java
-         └── exercicio2/
-             └── Piramide.java
-         └── exercicio3/
-             └── Esfera.java
-         └── exercicio4/
-             └── Retangulo.java
-         └── exercicio5/
-             └── Paralelepipedo.java
-         └── exercicio6/
-             └── Cilindro.java
-         └── exercicio7/
-             └── Cone.java
-         └── exercicio8/
-             └── Paciente.java
-         └── exercicio9/
-             └── Eleitor.java
-         └── exercicio11/
-             └── Funcionario.java
-```
-
-- Cada pacote (`exercicioX`) corresponde ao número do exercício.
-- Dentro de cada pacote há **uma classe Java** que implementa a solução.
-- A classe **`App.java`** executa todos os exercícios sequencialmente, exibindo resultados no console.
+O objetivo é praticar conceitos de **POO** como:  
+- Encapsulamento  
+- Construtores  
+- Validações  
+- Herança e polimorfismo (nas listas futuras)  
+- Criação e interpretação de **diagramas UML**  
+- Organização em pacotes e boas práticas de programação  
 
 ---
 
-## 📌 Exercícios Implementados
+## 📂 Estrutura do Repositório
 
-- **Exercício 1** – Pessoa (dados e IMC)  
-- **Exercício 2** – Pirâmide (volume)  
-- **Exercício 3** – Esfera (área e volume)  
-- **Exercício 4** – Retângulo (área e perímetro)  
-- **Exercício 5** – Paralelepípedo (área e volume)  
-- **Exercício 6** – Cilindro (áreas e volume)  
-- **Exercício 7** – Cone (geratriz, áreas e volume)  
-- **Exercício 8** – Paciente (IMC e faixa de risco)  
-- **Exercício 9** – Eleitor (tipo conforme idade)  
-- **Exercício 11** – Funcionário (INSS, IR, aumento, salário líquido)  
+```
+.
+├── lista1/
+│   ├── src/...
+│   ├── README.md       # README detalhado da Lista 1
+│
+├── lista2/
+│   ├── src/...
+│   ├── README.md       # README detalhado da Lista 2 (futuro)
+│
+└── listaN/
+    ├── src/...
+    ├── README.md       # README detalhado da Lista N (futuro)
+```
+
+- Cada pasta (`listaX/`) contém os arquivos **Java** da lista, além de um **README.md** específico com explicações detalhadas, UMLs e instruções de execução.  
+- O `README.md` raiz (este arquivo) serve como guia geral do repositório.  
 
 ---
 
-## ▶️ Como Rodar o Projeto
+## ✅ Listas Disponíveis
 
-### Pré-requisitos
-- **Java JDK 17+** instalado
-- **Maven** (se for usar como projeto Maven) ou suporte a projetos Java no seu IDE (IntelliJ, Eclipse, VSCode, NetBeans etc.)
-
-### Passo 1: Compilar
-Navegue até a pasta `src/main/java` e compile todas as classes:
-
-```bash
-javac org/devigode/App.java
-```
-
-> Isso também compilará todas as classes importadas (`Pessoa`, `Piramide`, `Esfera` etc.).
-
-### Passo 2: Executar
-Execute a classe principal `App`:
-
-```bash
-java org.devigode.App
-```
+- **[Lista 1](./lista1/README.md)** → Introdução à POO em Java, modelagem de classes, atributos, métodos e validações.  
+- **Lista 2** → *(em breve)*  
+- **Lista N** → *(em breve)*  
 
 ---
 
-## 💡 Observações
+## ▶️ Como Executar as Listas
 
-- Os **diagramas UML** podem ser gerados a partir das definições em **Mermaid** (fornecidas em cada exercício).  
-- Se você estiver usando o **IntelliJ IDEA** ou **Eclipse**, basta rodar o `App.java` clicando em ▶️ no editor.  
-- O código contém **validações** (exemplo: raio não pode ser negativo, salário não pode ser menor que zero, etc.), garantindo consistência dos dados.  
+1. Entre na pasta da lista desejada (ex.: `cd lista1`).  
+2. Siga as instruções do `README.md` específico da lista.  
+   - Exemplo (para Lista 1):  
+     ```bash
+     cd lista1/src/main/java
+     javac org/devigode/App.java
+     java org.devigode.App
+     ```
+
+---
+
+✍️ **Observação**: Cada lista possui **arquivos de UML** (`.mmd` e `.png`) para facilitar a visualização dos diagramas de classe.  
