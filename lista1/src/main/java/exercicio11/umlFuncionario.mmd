@@ -1,0 +1,14 @@
+classDiagram
+    class Funcionario {
+        - String nome
+        - double salarioMes
+        - int numeroFilhos
+        + Funcionario(String nome, double salarioMes, int numeroFilhos)
+        + getNome() String
+        + getSalarioMes() double
+        + getNumeroFilhos() int
+        + aumentarSalario(double percentual) void
+        + calcularINSS() double
+        + calcularIR() double
+        + calcularSalarioLiquido() double
+    }

@@ -1,0 +1,12 @@
+classDiagram
+    class Paciente {
+        - String nome
+        - double peso
+        - double altura
+        + Paciente(String nome, double peso, double altura)
+        + getNome() String
+        + getPeso() double
+        + getAltura() double
+        + calcularIMC() double
+        + calcularFaixaPeso() String
+    }
