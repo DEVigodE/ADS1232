@@ -22,7 +22,7 @@ O objetivo é praticar conceitos de **POO** como:
 │
 ├── lista2/
 │   ├── src/...
-│   ├── README.md       # README detalhado da Lista 2 (futuro)
+│   ├── README.md       # README detalhado da Lista 2
 │
 └── listaN/
     ├── src/...
@@ -37,7 +37,7 @@ O objetivo é praticar conceitos de **POO** como:
 ## ✅ Listas Disponíveis
 
 - **[Lista 1](./lista1/README.md)** → Introdução à POO em Java, modelagem de classes, atributos, métodos e validações.  
-- **Lista 2** → *(em breve)*  
+- **[Lista 2](./lista2/README.md)** → Manipulação de arquivos XML, persistência de dados, modelagem avançada e UML.  
 - **Lista N** → *(em breve)*  
 
 ---
@@ -55,4 +55,10 @@ O objetivo é praticar conceitos de **POO** como:
 
 ---
 
-✍️ **Observação**: Cada lista possui **arquivos de UML** (`.mmd` e `.png`) para facilitar a visualização dos diagramas de classe.  
+✍️ **Observação**: Cada lista possui **arquivos de UML** (`.mmd` e `.png`) para facilitar a visualização dos diagramas de classe.
+
+---
+
+## 🆕 Novidade
+
+A **Lista 2** já possui seu próprio [README detalhado](./lista2/README.md) com instruções de execução, estrutura, exemplos e diagramas UML.
