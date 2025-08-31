@@ -67,9 +67,7 @@ classDiagram
     Passageiro --> Sexo : uses
     CentralDeInformacoes --> Passageiro : manages
     Persistencia --> CentralDeInformacoes : persists
-    Persistencia --> XStream : uses
     App --> CentralDeInformacoes : uses
     App --> Passageiro : creates
     App --> Persistencia : uses
-    App --> Scanner : uses
 
