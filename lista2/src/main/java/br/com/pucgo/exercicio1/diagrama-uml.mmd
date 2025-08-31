@@ -22,6 +22,11 @@ classDiagram
         +String getEmail()
         +String toString()
     }
+
+    class App {
+        +main(String[] args)$ void
+    }
     
     Passageiro --> Sexo : uses
-    Passageiro : creates
+    App --> Passageiro : creates
+    App --> Sexo : uses

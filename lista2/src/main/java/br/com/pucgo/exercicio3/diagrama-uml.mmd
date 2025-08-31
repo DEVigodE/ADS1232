@@ -44,7 +44,13 @@ classDiagram
         +boolean arquivoExiste(String nomeArquivo)
     }
 
+    class App {
+        +main(String[] args)$ void
+    }
+
     Passageiro --> Sexo : uses
     CentralDeInformacoes --> Passageiro : manages
     Persistencia --> CentralDeInformacoes : persists
-    Persistencia --> XStream : uses
+    App --> CentralDeInformacoes : uses
+    App --> Persistencia : uses
+    App --> Passageiro : creates

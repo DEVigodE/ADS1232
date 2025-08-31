@@ -1,0 +1,32 @@
+🔥 Refatoração completa: Lista 3 - Estruturas de Dados com Pilhas
+
+✨ Implementações principais:
+• 5 exercícios práticos organizados em pacotes individuais (exercicio1-5)
+• Pilha com array (Pilha.java) para tipos int
+• PilhaEncadeada<T> genérica com nós encadeados
+• Menu principal integrado para navegação entre exercícios
+
+🎯 Exercícios implementados:
+1️⃣ Histórico de Navegação Web - Simulador de navegador com LIFO
+2️⃣ Sistema Desfazer (Undo) - Central de comandos com reversão
+3️⃣ Editor de Texto - Caracteres com backspace usando pilha
+4️⃣ Inversor de Frases - PilhaEncadeada<Character> com detecção de palíndromos
+5️⃣ Verificador de Parênteses - Algoritmo clássico para compiladores
+
+🏗️ Arquitetura:
+• Cada exercício com App.java próprio e classe especializada
+• Estrutura modular seguindo princípios SOLID
+• Interface visual melhorada com emojis e bordas ASCII
+• Compatibilidade Java 8+ (removido String.repeat())
+
+📚 Documentação:
+• README principal atualizado com Lista 3
+• README detalhado da Lista 3 com exemplos e instruções
+• Documentação de todas as classes e métodos
+• Guia de execução com Maven e manual
+
+🔧 Melhorias técnicas:
+• Remoção do pacote 'respostas' redundante
+• Organização em pacotes temáticos (exercicio1, exercicio2, etc.)
+• Código limpo com tratamento de erros robusto
+• Implementação de conceitos LIFO com aplicações reais
