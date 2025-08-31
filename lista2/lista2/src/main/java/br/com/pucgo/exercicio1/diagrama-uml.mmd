@@ -1,0 +1,27 @@
+classDiagram
+    class Sexo {
+        <<enumeration>>
+        MASCULINO
+        FEMININO
+        OUTRO
+    }
+    
+    class Passageiro {
+        -String nome
+        -Sexo sexo
+        -Date dataDeNascimento
+        -String email
+        
+        +Passageiro(String nome, Sexo sexo, Date dataDeNascimento, String email)
+        +String getNome()
+        +void setNome(String nome)
+        +Sexo getSexo()
+        +void setSexo(Sexo sexo)
+        +Date getDataDeNascimento()
+        +void setDataDeNascimento(Date dataDeNascimento)
+        +String getEmail()
+        +String toString()
+    }
+    
+    Passageiro --> Sexo : uses
+    Passageiro : creates
