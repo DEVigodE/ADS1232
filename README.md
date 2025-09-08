@@ -29,21 +29,29 @@ O objetivo é praticar conceitos de **POO** como:
 │   ├── src/...
 │   ├── README.md       # README detalhado da Lista 3
 │
+├── PDV/
+│   ├── SistemaPDV/     # Sistema de Ponto de Venda com Pilhas e Filas
+│   │   ├── src/...
+│   │   └── pom.xml
+│   └── umlPDV*.png     # Diagramas UML do Sistema PDV
+│
 └── listaN/
     ├── src/...
     ├── README.md       # README detalhado da Lista N (futuro)
 ```
 
 - Cada pasta (`listaX/`) contém os arquivos **Java** da lista, além de um **README.md** específico com explicações detalhadas, UMLs e instruções de execução.  
+- A pasta `PDV/` contém o **Sistema de Ponto de Venda (SistemaPDV)**, um projeto prático que implementa estruturas de dados avançadas.
 - O `README.md` raiz (este arquivo) serve como guia geral do repositório.  
 
 ---
 
-## ✅ Listas Disponíveis
+## ✅ Listas e Projetos Disponíveis
 
 - **[Lista 1](./lista1/README.md)** → Introdução à POO em Java, modelagem de classes, atributos, métodos e validações.  
 - **[Lista 2](./lista2/README.md)** → Manipulação de arquivos XML, persistência de dados, modelagem avançada e UML.  
 - **[Lista 3](./lista3/README.md)** → **🆕 Estruturas de Dados com Pilhas** - Implementação e aplicação prática de pilhas em diferentes cenários.
+- **[Sistema PDV](./PDV/)** → **🆕 Sistema de Ponto de Venda** - Aplicação prática de **Pilhas** e **Filas** em um sistema comercial completo.
 - **Lista N** → *(em breve)*  
 
 ---
@@ -63,6 +71,13 @@ O objetivo é praticar conceitos de **POO** como:
      cd lista3
      mvn compile exec:java -Dexec.mainClass="br.com.pucgo.App"
      ```
+   - **Sistema PDV** (Pilhas e Filas):
+     ```bash
+     cd PDV/SistemaPDV
+     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.fila.AppFila"
+     # ou para aplicação com pilhas
+     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.pilha.AppPilha"
+     ```
 
 ---
 
@@ -71,10 +86,34 @@ O objetivo é praticar conceitos de **POO** como:
 - **Lista 1**: Fundamentos de POO, encapsulamento e modelagem básica
 - **Lista 2**: Persistência XML, validações avançadas e estruturas complexas  
 - **Lista 3**: **Estruturas de Dados** - Pilhas com array e encadeadas, aplicações práticas como histórico de navegação, sistema de undo, editor de texto e verificador de parênteses
+- **Sistema PDV**: **Aplicação Comercial Completa** - Sistema de Ponto de Venda implementando:
+  - 🛒 **Filas** para gerenciamento de clientes e pedidos
+  - 📚 **Pilhas** para histórico de operações
+  - 👤 Modelagem completa (Cliente, Pedido, ItemPedido, Endereço)
+  - 🔄 Estados de pedido (PedidoStatus)
+  - 📊 Diagramas UML detalhados
 
 ---
 
-✍️ **Observação**: Cada lista possui **arquivos de UML** (`.mmd` e `.png`) para facilitar a visualização dos diagramas de classe.
+## 🏪 Sistema PDV - Características Especiais
+
+O **Sistema de Ponto de Venda** é um projeto prático que demonstra a aplicação real de estruturas de dados em um contexto comercial:
+
+### 📋 Funcionalidades Principais:
+- **Gestão de Clientes**: Cadastro completo com endereço e validações
+- **Processamento de Pedidos**: Controle de status e itens
+- **Fila de Atendimento**: Clientes aguardam atendimento em ordem
+- **Fila de Pedidos**: Pedidos aguardam processamento sequencial
+- **Histórico com Pilhas**: Operações podem ser desfeitas (undo)
+
+### 🔧 Estruturas de Dados Implementadas:
+- **FilaSimples**: Implementação genérica de fila com array
+- **PilhaEncadeada**: Implementação de pilha com lista encadeada
+- **Modelagem OO**: Classes bem estruturadas seguindo princípios SOLID
+
+---
+
+✍️ **Observação**: Cada lista possui **arquivos de UML** (`.mmd` e `.png`) para facilizar a visualização dos diagramas de classe.
 
 ---
 
@@ -82,3 +121,4 @@ O objetivo é praticar conceitos de **POO** como:
 
 - A **Lista 2** possui seu próprio [README detalhado](./lista2/README.md) com instruções de execução, estrutura, exemplos e diagramas UML.
 - A **Lista 3** apresenta implementações completas de **Estruturas de Dados** focadas em **Pilhas**, com exercícios práticos e interface visual melhorada. Veja o [README da Lista 3](./lista3/README.md).
+- O **Sistema PDV** combina **Pilhas** e **Filas** em uma aplicação comercial real, demonstrando o uso prático dessas estruturas em sistemas de produção.
