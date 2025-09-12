@@ -79,8 +79,10 @@ O objetivo é praticar conceitos de **POO** como:
      mvn compile exec:java -Dexec.mainClass="br.com.pucgo.pilha.AppPilha"
      ```
 
----
-
+     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.App"
+     # ou executar exercícios separadamente:
+     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.exercicio1.App"
+     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.exercicio2.App"
 ## 🎯 Destaques por Lista
 
 - **Lista 1**: Fundamentos de POO, encapsulamento e modelagem básica
