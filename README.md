@@ -29,6 +29,15 @@ O objetivo é praticar conceitos de **POO** como:
 │   ├── src/...
 │   ├── README.md       # README detalhado da Lista 3
 │
+├── Lista4/
+│   ├── src/...
+│   ├── README.md       # README detalhado da Lista 4
+│
+├── ControlePratosCantina/
+│   ├── src/...         # Sistema de Controle de Pratos com Pilhas
+│   ├── pom.xml
+│   └── README.md       # Explicação das operações de pilha
+│
 ├── PDV/
 │   ├── SistemaPDV/     # Sistema de Ponto de Venda com Pilhas e Filas
 │   │   ├── src/...
@@ -42,6 +51,7 @@ O objetivo é praticar conceitos de **POO** como:
 
 - Cada pasta (`listaX/`) contém os arquivos **Java** da lista, além de um **README.md** específico com explicações detalhadas, UMLs e instruções de execução.  
 - A pasta `PDV/` contém o **Sistema de Ponto de Venda (SistemaPDV)**, um projeto prático que implementa estruturas de dados avançadas.
+- A pasta `ControlePratosCantina/` contém o **Sistema de Controle de Pratos**, uma aplicação prática de pilhas em contexto realista.
 - O `README.md` raiz (este arquivo) serve como guia geral do repositório.  
 
 ---
@@ -51,8 +61,9 @@ O objetivo é praticar conceitos de **POO** como:
 - **[Lista 1](./lista1/README.md)** → Introdução à POO em Java, modelagem de classes, atributos, métodos e validações.  
 - **[Lista 2](./lista2/README.md)** → Manipulação de arquivos XML, persistência de dados, modelagem avançada e UML.  
 - **[Lista 3](./lista3/README.md)** → **🆕 Estruturas de Dados com Pilhas** - Implementação e aplicação prática de pilhas em diferentes cenários.
-- **[Sistema PDV](./PDV/)** → **🆕 Sistema de Ponto de Venda** - Aplicação prática de **Pilhas** e **Filas** em um sistema comercial completo.
-- **Lista N** → *(em breve)*  
+- **[Lista 4](./Lista4/README.md)** → *(Atualizada recentemente)*
+- **[Controle de Pratos na Cantina](./ControlePratosCantina/README.md)** → **🆕 Aplicação Prática de Pilhas** - Sistema realista de controle de pratos usando estrutura LIFO.
+- **[Sistema PDV](./PDV/)** → **Sistema de Ponto de Venda** - Aplicação prática de **Pilhas** e **Filas** em um sistema comercial completo.
 
 ---
 
@@ -71,6 +82,12 @@ O objetivo é praticar conceitos de **POO** como:
      cd lista3
      mvn compile exec:java -Dexec.mainClass="br.com.pucgo.App"
      ```
+   - **Controle de Pratos na Cantina**:
+     ```bash
+     cd ControlePratosCantina/src/main/java
+     javac br/com/pucgo/*.java
+     java br.com.pucgo.App
+     ```
    - **Sistema PDV** (Pilhas e Filas):
      ```bash
      cd PDV/SistemaPDV
@@ -88,12 +105,37 @@ O objetivo é praticar conceitos de **POO** como:
 - **Lista 1**: Fundamentos de POO, encapsulamento e modelagem básica
 - **Lista 2**: Persistência XML, validações avançadas e estruturas complexas  
 - **Lista 3**: **Estruturas de Dados** - Pilhas com array e encadeadas, aplicações práticas como histórico de navegação, sistema de undo, editor de texto e verificador de parênteses
+- **Lista 4**: *(Conteúdo a ser detalhado)*
+- **Controle de Pratos na Cantina**: **Aplicação Realista de Pilhas** - Simula o funcionamento de uma cantina usando:
+  - 🍽️ **Pilha de Pratos** com operações push, pop e peek
+  - ⚠️ **Tratamento de Erros** para pilha cheia e vazia
+  - 📊 **Visualização do Estado** da pilha em tempo real
+  - 🎯 **Contexto Real** - demonstra como pilhas resolvem problemas do dia a dia
 - **Sistema PDV**: **Aplicação Comercial Completa** - Sistema de Ponto de Venda implementando:
   - 🛒 **Filas** para gerenciamento de clientes e pedidos
   - 📚 **Pilhas** para histórico de operações
   - 👤 Modelagem completa (Cliente, Pedido, ItemPedido, Endereço)
   - 🔄 Estados de pedido (PedidoStatus)
   - 📊 Diagramas UML detalhados
+
+---
+
+## 🍽️ Controle de Pratos na Cantina - Características Especiais
+
+O **Sistema de Controle de Pratos** é uma aplicação educativa que demonstra o uso prático de pilhas em um contexto familiar:
+
+### 📋 Funcionalidades Implementadas:
+- **Adicionar Pratos (Push)**: Empilha pratos limpos no topo
+- **Retirar Pratos (Pop)**: Remove pratos do topo para uso
+- **Consultar Topo (Peek)**: Verifica próximo prato sem remover
+- **Controle de Estado**: Verifica se está cheia ou vazia
+- **Tratamento de Erros**: Simula situações de overflow e underflow
+
+### 🔧 Conceitos de Estruturas de Dados:
+- **LIFO (Last In, First Out)**: Princípio fundamental das pilhas
+- **Implementação com Arrays**: Estrutura baseada em vetores sem usar Collections
+- **Operações O(1)**: Todas as operações são realizadas em tempo constante
+- **Modelagem Real**: Aplicação prática de conceitos teóricos
 
 ---
 
@@ -115,7 +157,7 @@ O **Sistema de Ponto de Venda** é um projeto prático que demonstra a aplicaç�
 
 ---
 
-✍️ **Observação**: Cada lista possui **arquivos de UML** (`.mmd` e `.png`) para facilizar a visualização dos diagramas de classe.
+✍️ **Observação**: Cada lista possui **arquivos de UML** (`.mmd` e `.png`) para facilicar a visualização dos diagramas de classe.
 
 ---
 
@@ -123,4 +165,6 @@ O **Sistema de Ponto de Venda** é um projeto prático que demonstra a aplicaç�
 
 - A **Lista 2** possui seu próprio [README detalhado](./lista2/README.md) com instruções de execução, estrutura, exemplos e diagramas UML.
 - A **Lista 3** apresenta implementações completas de **Estruturas de Dados** focadas em **Pilhas**, com exercícios práticos e interface visual melhorada. Veja o [README da Lista 3](./lista3/README.md).
+- **🆕 Controle de Pratos na Cantina** - Nova aplicação prática demonstrando o uso de pilhas em um contexto realista e educativo. Sistema completo com tratamento de erros e visualização do estado.
+- A **Lista 4** foi adicionada recentemente ao repositório.
 - O **Sistema PDV** combina **Pilhas** e **Filas** em uma aplicação comercial real, demonstrando o uso prático dessas estruturas em sistemas de produção.
