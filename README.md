@@ -38,6 +38,11 @@ O objetivo é praticar conceitos de **POO** como:
 │   ├── pom.xml
 │   └── README.md       # Explicação das operações de pilha
 │
+├── AtendimentoClinicaUniversitaria/
+│   ├── src/...         # Sistema de Atendimento com Filas e Listas
+│   ├── pom.xml
+│   └── README.md       # Demonstração de Filas (Queue) e Listas
+│
 ├── PDV/
 │   ├── SistemaPDV/     # Sistema de Ponto de Venda com Pilhas e Filas
 │   │   ├── src/...
@@ -52,6 +57,7 @@ O objetivo é praticar conceitos de **POO** como:
 - Cada pasta (`listaX/`) contém os arquivos **Java** da lista, além de um **README.md** específico com explicações detalhadas, UMLs e instruções de execução.  
 - A pasta `PDV/` contém o **Sistema de Ponto de Venda (SistemaPDV)**, um projeto prático que implementa estruturas de dados avançadas.
 - A pasta `ControlePratosCantina/` contém o **Sistema de Controle de Pratos**, uma aplicação prática de pilhas em contexto realista.
+- A pasta `AtendimentoClinicaUniversitaria/` contém o **Sistema de Atendimento da Clínica**, demonstrando uso prático de filas e listas.
 - O `README.md` raiz (este arquivo) serve como guia geral do repositório.  
 
 ---
@@ -63,6 +69,7 @@ O objetivo é praticar conceitos de **POO** como:
 - **[Lista 3](./lista3/README.md)** → **🆕 Estruturas de Dados com Pilhas** - Implementação e aplicação prática de pilhas em diferentes cenários.
 - **[Lista 4](./Lista4/README.md)** → *(Atualizada recentemente)*
 - **[Controle de Pratos na Cantina](./ControlePratosCantina/README.md)** → **🆕 Aplicação Prática de Pilhas** - Sistema realista de controle de pratos usando estrutura LIFO.
+- **[Atendimento da Clínica Universitária](./AtendimentoClinicaUniversitaria/README.md)** → **🆕 Sistema com Filas e Listas** - Demonstra uso combinado de Queue (fila de pacientes) e List (pacientes atendidos) com sistema de prioridade.
 - **[Sistema PDV](./PDV/)** → **Sistema de Ponto de Venda** - Aplicação prática de **Pilhas** e **Filas** em um sistema comercial completo.
 
 ---
@@ -88,6 +95,12 @@ O objetivo é praticar conceitos de **POO** como:
      javac br/com/pucgo/*.java
      java br.com.pucgo.App
      ```
+   - **Atendimento da Clínica Universitária** (Filas e Listas):
+     ```bash
+     cd AtendimentoClinicaUniversitaria
+     javac -d target/classes -cp src/main/java src/main/java/br/com/pucgo/*.java
+     java -cp target/classes br.com.pucgo.App
+     ```
    - **Sistema PDV** (Pilhas e Filas):
      ```bash
      cd PDV/SistemaPDV
@@ -111,6 +124,10 @@ O objetivo é praticar conceitos de **POO** como:
   - ⚠️ **Tratamento de Erros** para pilha cheia e vazia
   - 📊 **Visualização do Estado** da pilha em tempo real
   - 🎯 **Contexto Real** - demonstra como pilhas resolvem problemas do dia a dia
+- **Atendimento da Clínica Universitária**: **Sistema com Filas e Listas** - Demonstra o uso de:
+  - ⏳ **Fila de Pacientes**: Gerencia a ordem de atendimento
+  - 📋 **Lista de Pacientes Atendidos**: Histórico dos atendimentos
+  - ⚙️ **Sistema de Prioridade**: Atende pacientes com base em critérios definidos
 - **Sistema PDV**: **Aplicação Comercial Completa** - Sistema de Ponto de Venda implementando:
   - 🛒 **Filas** para gerenciamento de clientes e pedidos
   - 📚 **Pilhas** para histórico de operações
@@ -136,6 +153,26 @@ O **Sistema de Controle de Pratos** é uma aplicação educativa que demonstra o
 - **Implementação com Arrays**: Estrutura baseada em vetores sem usar Collections
 - **Operações O(1)**: Todas as operações são realizadas em tempo constante
 - **Modelagem Real**: Aplicação prática de conceitos teóricos
+
+---
+
+## 🏥 Sistema de Atendimento da Clínica Universitária - Características Especiais
+
+O **Sistema de Atendimento da Clínica** é uma aplicação educativa que demonstra o uso combinado de filas e listas em um contexto hospitalar:
+
+### 📋 Funcionalidades Implementadas:
+- **Fila de Pacientes (Queue)**: Gerencia ordem de atendimento com sistema FIFO
+- **Sistema de Prioridade**: Fila separada para idosos (≥60 anos) e casos urgentes
+- **Lista de Atendidos**: Histórico completo dos pacientes já consultados
+- **Busca Inteligente**: Localização de pacientes por CPF na lista de atendidos
+- **Estatísticas em Tempo Real**: Média de idade, distribuição por prioridade
+
+### 🔧 Conceitos de Estruturas de Dados:
+- **FIFO (First In, First Out)**: Princípio fundamental das filas implementado com prioridade
+- **Lista Dinâmica**: Armazenamento flexível para histórico de atendimentos
+- **Operações Queue**: enqueue (adicionar), dequeue (remover), peek (consultar)
+- **Operações List**: add, search, display com algoritmos de busca linear
+- **Modelagem Real**: Simula situações práticas de gerenciamento hospitalar
 
 ---
 
@@ -168,3 +205,4 @@ O **Sistema de Ponto de Venda** é um projeto prático que demonstra a aplicaç�
 - **🆕 Controle de Pratos na Cantina** - Nova aplicação prática demonstrando o uso de pilhas em um contexto realista e educativo. Sistema completo com tratamento de erros e visualização do estado.
 - A **Lista 4** foi adicionada recentemente ao repositório.
 - O **Sistema PDV** combina **Pilhas** e **Filas** em uma aplicação comercial real, demonstrando o uso prático dessas estruturas em sistemas de produção.
+- **🆕 Atendimento da Clínica Universitária** - Novo sistema demonstrando o uso de filas e listas em um contexto de atendimento médico, com gerenciamento de pacientes e prioridades.
