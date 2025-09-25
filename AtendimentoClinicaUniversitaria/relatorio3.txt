@@ -1,0 +1,226 @@
+======================================================================
+=== NOVO EXERCÍCIO: ESTATÍSTICAS E RELATÓRIOS ===
+======================================================================
+
+=== SISTEMA COMPLETO COM RELATÓRIOS ===
+-------------------------------------------------------
+1. SIMULAÇÃO DE UM DIA COMPLETO NA CLÍNICA:
+--------------------------------------------------
+📅 CHEGADAS AO LONGO DO DIA:
+[MANHÃ] Chegou: Roberto Silva
+👤 NORMAL: Roberto Silva adicionado na fila normal
+[MANHÃ] Chegou: Fernanda Costa
+👴 IDOSO: Fernanda Costa adicionado na fila de idosos
+[MANHÃ] Chegou: Miguel Santos
+👤 NORMAL: Miguel Santos adicionado na fila normal
+[MEIO-DIA] Chegou: Amanda Urgente
+🚨 URGENTE: Amanda Urgente adicionado na fila de emergência
+[MEIO-DIA] Chegou: Joaquim Idoso
+👴 IDOSO: Joaquim Idoso adicionado na fila de idosos
+[MEIO-DIA] Chegou: Carla Jovem
+👤 NORMAL: Carla Jovem adicionado na fila normal
+[MEIO-DIA] Chegou: Paulo Emergência
+🚨 URGENTE: Paulo Emergência adicionado na fila de emergência
+[MEIO-DIA] Chegou: Rosana Sênior
+👴 IDOSO: Rosana Sênior adicionado na fila de idosos
+[TARDE] Chegou: Lucas Normal
+👤 NORMAL: Lucas Normal adicionado na fila normal
+[TARDE] Chegou: Sophia Crítica
+🚨 URGENTE: Sophia Crítica adicionado na fila de emergência
+[TARDE] Chegou: Antônio Aposentado
+👴 IDOSO: Antônio Aposentado adicionado na fila de idosos
+[TARDE] Chegou: Beatriz Normal
+👤 NORMAL: Beatriz Normal adicionado na fila normal
+[FINAL] Chegou: Carlos Idoso
+👴 IDOSO: Carlos Idoso adicionado na fila de idosos
+[FINAL] Chegou: Diana Jovem
+👤 NORMAL: Diana Jovem adicionado na fila normal
+[FINAL] Chegou: Eduardo Final
+👤 NORMAL: Eduardo Final adicionado na fila normal
+
+2. ESTADO INICIAL DA FILA ORGANIZADA POR PRIORIDADE:
+
+=== ESTADO COMPLETO DA FILA DE PRIORIDADE ===
+
+🚨 FILA URGENTE (3 pacientes):
+   1. Amanda Urgente (Idade: 41)
+   2. Paulo Emergência (Idade: 52)
+   3. Sophia Crítica (Idade: 36)
+
+👴 FILA IDOSOS (5 pacientes):
+   1. Fernanda Costa (Idade: 67)
+   2. Joaquim Idoso (Idade: 78)
+   3. Rosana Sênior (Idade: 63)
+   4. Antônio Aposentado (Idade: 72)
+   5. Carlos Idoso (Idade: 69)
+
+👤 FILA NORMAL (7 pacientes):
+   1. Roberto Silva (Idade: 34)
+   2. Miguel Santos (Idade: 23)
+   3. Carla Jovem (Idade: 19)
+   4. Lucas Normal (Idade: 28)
+   5. Beatriz Normal (Idade: 31)
+   6. Diana Jovem (Idade: 25)
+   7. Eduardo Final (Idade: 45)
+
+TOTAL GERAL: 15 pacientes
+=============================================
+
+=== DISTRIBUIÇÃO DE PRIORIDADES ===
+🚨 Casos urgentes: 3 (20,0%)
+👴 Pacientes idosos: 5 (33,3%)
+👤 Pacientes normais: 7 (46,7%)
+===================================
+
+3. PROCESSANDO TODOS OS ATENDIMENTOS DO DIA:
+-------------------------------------------------------
+🚨 Chamando paciente URGENTE: Amanda Urgente
+🏥 Atendimento #1: Amanda Urgente - Finalizado!
+Paciente Amanda Urgente foi atendido e adicionado à lista de atendidos
+🚨 Chamando paciente URGENTE: Paulo Emergência
+🏥 Atendimento #2: Paulo Emergência - Finalizado!
+Paciente Paulo Emergência foi atendido e adicionado à lista de atendidos
+🚨 Chamando paciente URGENTE: Sophia Crítica
+🏥 Atendimento #3: Sophia Crítica - Finalizado!
+Paciente Sophia Crítica foi atendido e adicionado à lista de atendidos
+👴 Chamando paciente IDOSO: Fernanda Costa
+🏥 Atendimento #4: Fernanda Costa - Finalizado!
+Paciente Fernanda Costa foi atendido e adicionado à lista de atendidos
+👴 Chamando paciente IDOSO: Joaquim Idoso
+🏥 Atendimento #5: Joaquim Idoso - Finalizado!
+Paciente Joaquim Idoso foi atendido e adicionado à lista de atendidos
+   ... processando atendimentos ...
+👴 Chamando paciente IDOSO: Rosana Sênior
+🏥 Atendimento #6: Rosana Sênior - Finalizado!
+Paciente Rosana Sênior foi atendido e adicionado à lista de atendidos
+👴 Chamando paciente IDOSO: Antônio Aposentado
+🏥 Atendimento #7: Antônio Aposentado - Finalizado!
+Paciente Antônio Aposentado foi atendido e adicionado à lista de atendidos
+👴 Chamando paciente IDOSO: Carlos Idoso
+🏥 Atendimento #8: Carlos Idoso - Finalizado!
+Paciente Carlos Idoso foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: Roberto Silva
+🏥 Atendimento #9: Roberto Silva - Finalizado!
+Paciente Roberto Silva foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: Miguel Santos
+🏥 Atendimento #10: Miguel Santos - Finalizado!
+Paciente Miguel Santos foi atendido e adicionado à lista de atendidos
+   ... processando atendimentos ...
+👤 Chamando paciente NORMAL: Carla Jovem
+🏥 Atendimento #11: Carla Jovem - Finalizado!
+Paciente Carla Jovem foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: Lucas Normal
+🏥 Atendimento #12: Lucas Normal - Finalizado!
+Paciente Lucas Normal foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: Beatriz Normal
+🏥 Atendimento #13: Beatriz Normal - Finalizado!
+Paciente Beatriz Normal foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: Diana Jovem
+🏥 Atendimento #14: Diana Jovem - Finalizado!
+Paciente Diana Jovem foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: Eduardo Final
+🏥 Atendimento #15: Eduardo Final - Finalizado!
+Paciente Eduardo Final foi atendido e adicionado à lista de atendidos
+   ... processando atendimentos ...
+
+4. TESTANDO NOVOS MÉTODOS DE ESTATÍSTICAS:
+--------------------------------------------------
+📊 MÉTODOS IMPLEMENTADOS NO EXERCÍCIO:
+• contarAtendidos(): 15
+• calcularMediaIdade(): 45,53 anos
+• encontrarMaisIdoso(): Joaquim Idoso (78 anos)
+• encontrarMaisJovem(): Carla Jovem (19 anos)
+• contarUrgentes(): 3
+• contarIdosos(): 5
+
+5. EXIBINDO RELATÓRIO DIÁRIO COMPLETO:
+---------------------------------------------
+
+============================================================
+=== RELATÓRIO DIÁRIO DE ATENDIMENTOS ===
+============================================================
+Data/Hora do Relatório: 25/09/2025 20:23:27
+
+📊 ESTATÍSTICAS GERAIS:
+Total de pacientes atendidos: 15
+Média de idade: 45,5 anos
+Paciente mais idoso: Joaquim Idoso (78 anos)
+Paciente mais jovem: Carla Jovem (19 anos)
+
+🚨 DISTRIBUIÇÃO POR PRIORIDADE:
+Casos urgentes atendidos: 3
+Pacientes idosos atendidos: 5
+Pacientes normais atendidos: 7
+
+📈 PERCENTUAIS:
+Urgentes: 20,0%
+Idosos: 33,3%
+Normais: 46,7%
+
+📋 LISTA COMPLETA DE ATENDIDOS:
+1. 🚨 URGENTE - Amanda Urgente (Idade: 41, CPF: 400.400.400-40)
+2. 🚨 URGENTE - Paulo Emergência (Idade: 52, CPF: 700.700.700-70)
+3. 🚨 URGENTE - Sophia Crítica (Idade: 36, CPF: 101.101.101-01)
+4. 👴 IDOSO - Fernanda Costa (Idade: 67, CPF: 200.200.200-20)
+5. 👴 IDOSO - Joaquim Idoso (Idade: 78, CPF: 500.500.500-50)
+6. 👴 IDOSO - Rosana Sênior (Idade: 63, CPF: 800.800.800-80)
+7. 👴 IDOSO - Antônio Aposentado (Idade: 72, CPF: 202.202.202-02)
+8. 👴 IDOSO - Carlos Idoso (Idade: 69, CPF: 404.404.404-04)
+9. 👤 NORMAL - Roberto Silva (Idade: 34, CPF: 100.100.100-10)
+10. 👤 NORMAL - Miguel Santos (Idade: 23, CPF: 300.300.300-30)
+11. 👤 NORMAL - Carla Jovem (Idade: 19, CPF: 600.600.600-60)
+12. 👤 NORMAL - Lucas Normal (Idade: 28, CPF: 900.900.900-90)
+13. 👤 NORMAL - Beatriz Normal (Idade: 31, CPF: 303.303.303-03)
+14. 👤 NORMAL - Diana Jovem (Idade: 25, CPF: 505.505.505-05)
+15. 👤 NORMAL - Eduardo Final (Idade: 45, CPF: 606.606.606-06)
+
+============================================================
+=== FIM DO RELATÓRIO DIÁRIO ===
+============================================================
+
+6. DESAFIO EXTRA - EXPORTANDO RELATÓRIO PARA ARQUIVO:
+------------------------------------------------------------
+✅ Relatório exportado com sucesso para: relatorio_clinica_20250925_202327.txt
+📄 O relatório foi salvo e pode ser aberto em qualquer editor de texto.
+📂 Localização: C:\Users\igor.bittencourt\Proton Drive\igorobm\My files\repo\ADS1232\AtendimentoClinicaUniversitaria\relatorio_clinica_20250925_202327.txt
+💡 Este arquivo pode ser enviado por email, impresso ou arquivado.
+
+7. COMPARAÇÃO COM MÉTODOS ANTERIORES:
+---------------------------------------------
+🔄 Chamando método legado exibirEstatisticas():
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 15
+Média de idade dos atendidos: 45,5 anos
+Paciente mais idoso: Joaquim Idoso (78 anos)
+Casos urgentes: 3
+Pacientes idosos (60+): 5
+====================================
+
+
+8. ANÁLISE DOS RESULTADOS OBTIDOS:
+----------------------------------------
+✅ OBJETIVOS DO EXERCÍCIO ALCANÇADOS:
+   • ✓ Contar pacientes atendidos: 15 pacientes
+   • ✓ Calcular média de idade: 45,5 anos
+   • ✓ Encontrar mais idoso: Joaquim Idoso (78 anos)
+   • ✓ Relatório diário: Formato completo com estatísticas
+   • ✓ Desafio extra: Exportação para arquivo .txt
+
+📈 INSIGHTS GERADOS PELAS ESTATÍSTICAS:
+• 20,0% dos atendimentos foram urgentes
+• 33,3% dos pacientes eram idosos
+• Faixa etária: 19 a 78 anos
+• Sistema priorizou corretamente: urgentes → idosos → normais
+
+======================================================================
+=== EXERCÍCIO DE ESTATÍSTICAS E RELATÓRIOS FINALIZADO ===
+======================================================================
+
+🎯 TODOS OS EXERCÍCIOS CONCLUÍDOS COM SUCESSO!
+📚 Sistema completo implementado com:
+   • Filas (normal, circular, encadeada)
+   • Prioridades (urgente, idoso, normal)
+   • Estatísticas (contagem, médias, extremos)
+   • Relatórios (tela e arquivo)
+   • Análise de complexidade algorítmica

@@ -1,0 +1,47 @@
+============================================================
+===        RELATÓRIO DIÁRIO DE ATENDIMENTOS         ===
+===          CLÍNICA UNIVERSITÁRIA                  ===
+============================================================
+
+Data/Hora do Relatório: 25/09/2025 20:23:27
+
+📊 ESTATÍSTICAS GERAIS:
+----------------------------------------------------------
+Total de pacientes atendidos: 15
+Média de idade: 45,5 anos
+Paciente mais idoso: Joaquim Idoso (78 anos)
+Paciente mais jovem: Carla Jovem (19 anos)
+
+🚨 DISTRIBUIÇÃO POR PRIORIDADE:
+----------------------------------------------------------
+Casos urgentes atendidos: 3
+Pacientes idosos atendidos: 5
+Pacientes normais atendidos: 7
+
+📈 PERCENTUAIS:
+----------------------------------------------------------
+Urgentes: 20,0%
+Idosos: 33,3%
+Normais: 46,7%
+
+📋 LISTA COMPLETA DE ATENDIDOS:
+----------------------------------------------------------
+1. URGENTE - Amanda Urgente (Idade: 41, CPF: 400.400.400-40)
+2. URGENTE - Paulo Emergência (Idade: 52, CPF: 700.700.700-70)
+3. URGENTE - Sophia Crítica (Idade: 36, CPF: 101.101.101-01)
+4. IDOSO - Fernanda Costa (Idade: 67, CPF: 200.200.200-20)
+5. IDOSO - Joaquim Idoso (Idade: 78, CPF: 500.500.500-50)
+6. IDOSO - Rosana Sênior (Idade: 63, CPF: 800.800.800-80)
+7. IDOSO - Antônio Aposentado (Idade: 72, CPF: 202.202.202-02)
+8. IDOSO - Carlos Idoso (Idade: 69, CPF: 404.404.404-04)
+9. NORMAL - Roberto Silva (Idade: 34, CPF: 100.100.100-10)
+10. NORMAL - Miguel Santos (Idade: 23, CPF: 300.300.300-30)
+11. NORMAL - Carla Jovem (Idade: 19, CPF: 600.600.600-60)
+12. NORMAL - Lucas Normal (Idade: 28, CPF: 900.900.900-90)
+13. NORMAL - Beatriz Normal (Idade: 31, CPF: 303.303.303-03)
+14. NORMAL - Diana Jovem (Idade: 25, CPF: 505.505.505-05)
+15. NORMAL - Eduardo Final (Idade: 45, CPF: 606.606.606-06)
+
+============================================================
+===              FIM DO RELATÓRIO                   ===
+============================================================

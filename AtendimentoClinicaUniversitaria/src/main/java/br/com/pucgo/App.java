@@ -1,5 +1,8 @@
 package br.com.pucgo;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * Sistema de Atendimento da Clínica Universitária
  * Demonstra o uso de Fila (Queue) e Lista (List) para gerenciar pacientes
@@ -548,5 +551,168 @@ public class App
         System.out.println("\n" + repeat("=", 60));
         System.out.println("=== EXERCÍCIO DE PRIORIZAÇÃO E COMPLEXIDADE FINALIZADO ===");
         System.out.println(repeat("=", 60));
+
+        // Novo exercício: Estatísticas e Relatórios
+        testeEstatisticasRelatorios();
+    }
+
+    /**
+     * NOVO EXERCÍCIO: Estatísticas e Relatórios
+     * Aplica operações sobre listas para gerar informações úteis
+     */
+    private static void testeEstatisticasRelatorios() {
+        System.out.println("\n" + repeat("=", 70));
+        System.out.println("=== NOVO EXERCÍCIO: ESTATÍSTICAS E RELATÓRIOS ===");
+        System.out.println(repeat("=", 70));
+
+        // Criando uma nova simulação completa para demonstrar as estatísticas
+        testeRelatorioCompleto();
+    }
+
+    private static void testeRelatorioCompleto() {
+        System.out.println("\n=== TESTE 6: SISTEMA COMPLETO COM RELATÓRIOS ===");
+        System.out.println(repeat("-", 55));
+
+        // Usando a fila de prioridade avançada para uma simulação completa
+        FilaPrioridadeAvancada fila = new FilaPrioridadeAvancada();
+        ListaDeAtendidos atendidos = new ListaDeAtendidos();
+
+        System.out.println("1. SIMULAÇÃO DE UM DIA COMPLETO NA CLÍNICA:");
+        System.out.println(repeat("-", 50));
+
+        // Criando uma simulação diversificada com 15 pacientes
+        Paciente[] pacientesDia = {
+            // Manhã - chegadas normais
+            new Paciente("Roberto Silva", 34, "100.100.100-10"),
+            new Paciente("Fernanda Costa", 67, "200.200.200-20"),
+            new Paciente("Miguel Santos", 23, "300.300.300-30"),
+
+            // Meio da manhã - caso urgente chega
+            new Paciente("Amanda Urgente", 41, "400.400.400-40", false, true),
+            new Paciente("Joaquim Idoso", 78, "500.500.500-50"),
+
+            // Almoço - mais chegadas
+            new Paciente("Carla Jovem", 19, "600.600.600-60"),
+            new Paciente("Paulo Emergência", 52, "700.700.700-70", false, true),
+            new Paciente("Rosana Sênior", 63, "800.800.800-80"),
+
+            // Tarde - pico de atendimento
+            new Paciente("Lucas Normal", 28, "900.900.900-90"),
+            new Paciente("Sophia Crítica", 36, "101.101.101-01", false, true),
+            new Paciente("Antônio Aposentado", 72, "202.202.202-02"),
+            new Paciente("Beatriz Normal", 31, "303.303.303-03"),
+
+            // Final do dia
+            new Paciente("Carlos Idoso", 69, "404.404.404-04"),
+            new Paciente("Diana Jovem", 25, "505.505.505-05"),
+            new Paciente("Eduardo Final", 45, "606.606.606-06")
+        };
+
+        // Simulando chegadas ao longo do dia
+        System.out.println("📅 CHEGADAS AO LONGO DO DIA:");
+        for (int i = 0; i < pacientesDia.length; i++) {
+            String periodo = i < 3 ? "MANHÃ" :
+                           i < 8 ? "MEIO-DIA" :
+                           i < 12 ? "TARDE" : "FINAL";
+            System.out.println("[" + periodo + "] Chegou: " + pacientesDia[i].getNome());
+            fila.adicionarPaciente(pacientesDia[i]);
+        }
+
+        System.out.println("\n2. ESTADO INICIAL DA FILA ORGANIZADA POR PRIORIDADE:");
+        fila.exibirEstadoCompleto();
+        fila.exibirDistribuicaoPrioridades();
+
+        System.out.println("\n3. PROCESSANDO TODOS OS ATENDIMENTOS DO DIA:");
+        System.out.println(repeat("-", 55));
+
+        int numeroAtendimento = 1;
+        while (!fila.isEmpty()) {
+            Paciente paciente = fila.chamarProximoPaciente();
+            if (paciente != null) {
+                System.out.println("🏥 Atendimento #" + numeroAtendimento + ": " +
+                                 paciente.getNome() + " - Finalizado!");
+                atendidos.adicionarAtendido(paciente);
+                numeroAtendimento++;
+
+                // Pequena pausa visual a cada 5 atendimentos
+                if (numeroAtendimento % 5 == 1) {
+                    System.out.println("   ... processando atendimentos ...");
+                }
+            }
+        }
+
+        System.out.println("\n4. TESTANDO NOVOS MÉTODOS DE ESTATÍSTICAS:");
+        System.out.println(repeat("-", 50));
+
+        // Demonstrando os novos métodos implementados
+        System.out.println("📊 MÉTODOS IMPLEMENTADOS NO EXERCÍCIO:");
+        System.out.println("• contarAtendidos(): " + atendidos.contarAtendidos());
+        System.out.println("• calcularMediaIdade(): " +
+                         String.format("%.2f", atendidos.calcularMediaIdade()) + " anos");
+
+        Paciente maisIdoso = atendidos.encontrarMaisIdoso();
+        Paciente maisJovem = atendidos.encontrarMaisJovem();
+
+        System.out.println("• encontrarMaisIdoso(): " + maisIdoso.getNome() +
+                         " (" + maisIdoso.getIdade() + " anos)");
+        System.out.println("• encontrarMaisJovem(): " + maisJovem.getNome() +
+                         " (" + maisJovem.getIdade() + " anos)");
+        System.out.println("• contarUrgentes(): " + atendidos.contarUrgentes());
+        System.out.println("• contarIdosos(): " + atendidos.contarIdosos());
+
+        System.out.println("\n5. EXIBINDO RELATÓRIO DIÁRIO COMPLETO:");
+        System.out.println(repeat("-", 45));
+        atendidos.exibirRelatorioDiario();
+
+        System.out.println("\n6. DESAFIO EXTRA - EXPORTANDO RELATÓRIO PARA ARQUIVO:");
+        System.out.println(repeat("-", 60));
+
+        // Criando nome do arquivo com data/hora atual
+        LocalDateTime agora = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
+        String nomeArquivo = "relatorio_clinica_" + agora.format(formatter);
+
+        boolean sucesso = atendidos.exportarRelatorio(nomeArquivo);
+        if (sucesso) {
+            System.out.println("📄 O relatório foi salvo e pode ser aberto em qualquer editor de texto.");
+            System.out.println("📂 Localização: " + System.getProperty("user.dir") + "\\" + nomeArquivo + ".txt");
+            System.out.println("💡 Este arquivo pode ser enviado por email, impresso ou arquivado.");
+        }
+
+        System.out.println("\n7. COMPARAÇÃO COM MÉTODOS ANTERIORES:");
+        System.out.println(repeat("-", 45));
+        System.out.println("🔄 Chamando método legado exibirEstatisticas():");
+        atendidos.exibirEstatisticas();
+
+        System.out.println("\n8. ANÁLISE DOS RESULTADOS OBTIDOS:");
+        System.out.println(repeat("-", 40));
+        System.out.println("✅ OBJETIVOS DO EXERCÍCIO ALCANÇADOS:");
+        System.out.println("   • ✓ Contar pacientes atendidos: " + atendidos.contarAtendidos() + " pacientes");
+        System.out.println("   • ✓ Calcular média de idade: " +
+                         String.format("%.1f", atendidos.calcularMediaIdade()) + " anos");
+        System.out.println("   • ✓ Encontrar mais idoso: " + maisIdoso.getNome() +
+                         " (" + maisIdoso.getIdade() + " anos)");
+        System.out.println("   • ✓ Relatório diário: Formato completo com estatísticas");
+        System.out.println("   • ✓ Desafio extra: Exportação para arquivo .txt");
+
+        System.out.println("\n📈 INSIGHTS GERADOS PELAS ESTATÍSTICAS:");
+        double percentualUrgentes = (atendidos.contarUrgentes() * 100.0) / atendidos.contarAtendidos();
+        double percentualIdosos = (atendidos.contarIdosos() * 100.0) / atendidos.contarAtendidos();
+
+        System.out.println("• " + String.format("%.1f", percentualUrgentes) + "% dos atendimentos foram urgentes");
+        System.out.println("• " + String.format("%.1f", percentualIdosos) + "% dos pacientes eram idosos");
+        System.out.println("• Faixa etária: " + maisJovem.getIdade() + " a " + maisIdoso.getIdade() + " anos");
+        System.out.println("• Sistema priorizou corretamente: urgentes → idosos → normais");
+
+        System.out.println("\n" + repeat("=", 70));
+        System.out.println("=== EXERCÍCIO DE ESTATÍSTICAS E RELATÓRIOS FINALIZADO ===");
+        System.out.println(repeat("=", 70));
+        System.out.println("\n🎯 TODOS OS EXERCÍCIOS CONCLUÍDOS COM SUCESSO!");
+        System.out.println("📚 Sistema completo implementado com:");
+        System.out.println("   • Filas (normal, circular, encadeada)");
+        System.out.println("   • Prioridades (urgente, idoso, normal)");
+        System.out.println("   • Estatísticas (contagem, médias, extremos)");
+        System.out.println("   • Relatórios (tela e arquivo)");
+        System.out.println("   • Análise de complexidade algorítmica");
     }
 }
