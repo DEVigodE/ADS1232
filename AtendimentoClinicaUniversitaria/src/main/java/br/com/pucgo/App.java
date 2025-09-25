@@ -22,6 +22,9 @@ public class App
 
         // Comparação de performance
         comparacaoPerformance();
+
+        // Novo exercício: Fila de Prioridade e Complexidade
+        testePrioridadeEComplexidade();
     }
 
     /**
@@ -340,5 +343,210 @@ public class App
         System.out.println("• Fila Original: Para prototipagem rápida ou quando prioridade é necessária");
 
         System.out.println("\n=== SISTEMA FINALIZADO ===");
+    }
+
+    /**
+     * NOVO EXERCÍCIO: Priorização e Complexidade
+     * Trabalha com Fila de Prioridade e análise de complexidade algorítmica
+     */
+    private static void testePrioridadeEComplexidade() {
+        System.out.println("\n" + repeat("=", 60));
+        System.out.println("=== NOVO EXERCÍCIO: PRIORIZAÇÃO E COMPLEXIDADE ===");
+        System.out.println(repeat("=", 60));
+
+        // Teste 1: Fila de Prioridade com ArrayList
+        testePrioridadeArrayList();
+
+        // Teste 2: Fila de Prioridade Encadeada
+        testePrioridadeEncadeada();
+
+        // Análise comparativa
+        analiseComparativaComplexidade();
+    }
+
+    private static void testePrioridadeArrayList() {
+        System.out.println("\n=== TESTE 4: FILA DE PRIORIDADE AVANÇADA (ArrayList) ===");
+        System.out.println(repeat("-", 60));
+
+        FilaPrioridadeAvancada filaPrioridade = new FilaPrioridadeAvancada();
+        ListaDeAtendidos atendidos = new ListaDeAtendidos();
+
+        System.out.println("1. CRIANDO SIMULAÇÃO COM 10 PACIENTES (IDADES E URGÊNCIAS VARIADAS):");
+        System.out.println(repeat("-", 70));
+
+        // Criando 10 pacientes com diferentes prioridades
+        Paciente[] pacientesSimulacao = {
+            new Paciente("Ana Silva", 45, "111.111.111-11"),                    // Normal
+            new Paciente("Carlos Urgente", 35, "222.222.222-22", false, true), // Urgente
+            new Paciente("Maria Idosa", 75, "333.333.333-33"),                 // Idosa
+            new Paciente("João Normal", 28, "444.444.444-44"),                 // Normal
+            new Paciente("Pedro Emergência", 42, "555.555.555-55", false, true), // Urgente
+            new Paciente("Rosa Sênior", 68, "666.666.666-66"),                 // Idosa
+            new Paciente("Lucas Jovem", 22, "777.777.777-77"),                 // Normal
+            new Paciente("Sofia Crítica", 55, "888.888.888-88", false, true),  // Urgente
+            new Paciente("Alberto Aposentado", 82, "999.999.999-99"),          // Idoso
+            new Paciente("Carla Normal", 38, "000.000.000-00")                 // Normal
+        };
+
+        // Adicionando pacientes (simulando chegadas aleatórias)
+        for (Paciente p : pacientesSimulacao) {
+            filaPrioridade.adicionarPaciente(p);
+        }
+
+        System.out.println("\n2. ESTADO INICIAL DA FILA:");
+        filaPrioridade.exibirEstadoCompleto();
+        filaPrioridade.exibirDistribuicaoPrioridades();
+
+        System.out.println("\n3. ATENDENDO TODOS OS PACIENTES (OBSERVAR ORDEM DE PRIORIDADE):");
+        System.out.println(repeat("-", 65));
+
+        int contador = 1;
+        while (!filaPrioridade.isEmpty()) {
+            Paciente paciente = filaPrioridade.chamarProximoPaciente();
+            if (paciente != null) {
+                System.out.println("Atendimento #" + contador + ": " + paciente.getNome() +
+                                 " (Idade: " + paciente.getIdade() +
+                                 ", Urgente: " + (paciente.isUrgente() ? "SIM" : "NÃO") + ")");
+                atendidos.adicionarAtendido(paciente);
+                contador++;
+            }
+        }
+
+        System.out.println("\n4. ESTATÍSTICAS FINAIS:");
+        System.out.println(repeat("-", 25));
+        atendidos.exibirEstatisticas();
+        filaPrioridade.exibirEstatisticasPerformance();
+
+        System.out.println("\n=== TESTE 4 FINALIZADO ===\n");
+    }
+
+    private static void testePrioridadeEncadeada() {
+        System.out.println("=== TESTE 5: FILA DE PRIORIDADE ENCADEADA ===");
+        System.out.println(repeat("-", 50));
+
+        FilaPrioridadeEncadeada filaEncadeada = new FilaPrioridadeEncadeada();
+        ListaDeAtendidos atendidos = new ListaDeAtendidos();
+
+        System.out.println("1. ADICIONANDO OS MESMOS 10 PACIENTES NA FILA ENCADEADA:");
+        System.out.println(repeat("-", 60));
+
+        // Mesmos pacientes para comparação justa
+        Paciente[] pacientesSimulacao = {
+            new Paciente("Ana Silva", 45, "111.111.111-11"),                    // Normal
+            new Paciente("Carlos Urgente", 35, "222.222.222-22", false, true), // Urgente
+            new Paciente("Maria Idosa", 75, "333.333.333-33"),                 // Idosa
+            new Paciente("João Normal", 28, "444.444.444-44"),                 // Normal
+            new Paciente("Pedro Emergência", 42, "555.555.555-55", false, true), // Urgente
+            new Paciente("Rosa Sênior", 68, "666.666.666-66"),                 // Idosa
+            new Paciente("Lucas Jovem", 22, "777.777.777-77"),                 // Normal
+            new Paciente("Sofia Crítica", 55, "888.888.888-88", false, true),  // Urgente
+            new Paciente("Alberto Aposentado", 82, "999.999.999-99"),          // Idoso
+            new Paciente("Carla Normal", 38, "000.000.000-00")                 // Normal
+        };
+
+        // Adicionando na fila encadeada
+        for (Paciente p : pacientesSimulacao) {
+            filaEncadeada.adicionarPaciente(p);
+        }
+
+        System.out.println("\n2. ESTADO DA FILA ENCADEADA (JÁ ORDENADA POR PRIORIDADE):");
+        filaEncadeada.exibirEstadoCompleto();
+
+        System.out.println("\n3. ATENDENDO PACIENTES (FILA ENCADEADA):");
+        System.out.println(repeat("-", 45));
+
+        int contador = 1;
+        while (!filaEncadeada.isEmpty()) {
+            Paciente paciente = filaEncadeada.chamarProximoPaciente();
+            if (paciente != null) {
+                System.out.println("Atendimento #" + contador + ": " + paciente.getNome() +
+                                 " (Idade: " + paciente.getIdade() +
+                                 ", Urgente: " + (paciente.isUrgente() ? "SIM" : "NÃO") + ")");
+                atendidos.adicionarAtendido(paciente);
+                contador++;
+            }
+        }
+
+        System.out.println("\n4. ESTATÍSTICAS DA IMPLEMENTAÇÃO ENCADEADA:");
+        System.out.println(repeat("-", 45));
+        atendidos.exibirEstatisticas();
+        filaEncadeada.exibirEstatisticasPerformance();
+
+        System.out.println("\n=== TESTE 5 FINALIZADO ===\n");
+    }
+
+    private static void analiseComparativaComplexidade() {
+        System.out.println("=== ANÁLISE COMPARATIVA DE COMPLEXIDADE ===");
+        System.out.println(repeat("=", 50));
+
+        System.out.println("\n📊 COMPLEXIDADE ALGORÍTMICA DAS IMPLEMENTAÇÕES:");
+        System.out.println("╔══════════════════════════════════════════════════════════════════════════╗");
+        System.out.println("║ ESTRUTURA              │ INSERÇÃO │ REMOÇÃO │ BUSCA │ ESPAÇO │ ORDEM    ║");
+        System.out.println("╠══════════════════════════════════════════════════════════════════════════╣");
+        System.out.println("║ Fila Normal            │   O(1)   │  O(n)   │  N/A  │ O(n)   │ FIFO     ║");
+        System.out.println("║ Fila Circular          │   O(1)   │  O(1)   │  N/A  │ O(n)   │ FIFO     ║");
+        System.out.println("║ Fila Encadeada         │   O(1)   │  O(1)   │  N/A  │ O(n)   │ FIFO     ║");
+        System.out.println("╠══════════════════════════════════════════════════════════════════════════╣");
+        System.out.println("║ Prioridade ArrayList   │   O(1)   │  O(n)   │ O(1)  │ O(n)   │ Por Prio ║");
+        System.out.println("║ Prioridade Encadeada   │   O(n)   │  O(1)   │ O(1)  │ O(n)   │ Por Prio ║");
+        System.out.println("╚══════════════════════════════════════════════════════════════════════════╝");
+
+        System.out.println("\n🔍 DISCUSSÃO DETALHADA:");
+        System.out.println(repeat("-", 25));
+
+        System.out.println("\n1️⃣ FILA DE PRIORIDADE com ARRAYLIST:");
+        System.out.println("   ✅ INSERÇÃO O(1): Adiciona sempre no final da lista apropriada");
+        System.out.println("   ❌ REMOÇÃO O(n): remove(0) precisa deslocar todos os elementos");
+        System.out.println("   ✅ BUSCA O(1): Acesso direto ao primeiro elemento");
+        System.out.println("   📝 Mantém 3 listas separadas (urgente, idoso, normal)");
+
+        System.out.println("\n2️⃣ FILA DE PRIORIDADE ENCADEADA:");
+        System.out.println("   ❌ INSERÇÃO O(n): Precisa encontrar posição correta na ordem");
+        System.out.println("   ✅ REMOÇÃO O(1): Remove sempre do início, sem deslocamentos");
+        System.out.println("   ✅ BUSCA O(1): Acesso direto ao primeiro nó");
+        System.out.println("   📝 Mantém ordem única por prioridade usando ponteiros");
+
+        System.out.println("\n🚀 QUANDO USAR CADA ESTRUTURA:");
+        System.out.println(repeat("-", 35));
+
+        System.out.println("\n🏥 FILA DE PRIORIDADE ARRAYLIST:");
+        System.out.println("   • Ideal quando: Muitas inserções, poucas remoções");
+        System.out.println("   • Cenário: Cadastro em lote, atendimento esporádico");
+        System.out.println("   • Vantagem: Inserção muito rápida O(1)");
+        System.out.println("   • Desvantagem: Remoção custosa O(n)");
+
+        System.out.println("\n🔗 FILA DE PRIORIDADE ENCADEADA:");
+        System.out.println("   • Ideal quando: Muitas remoções, inserções controladas");
+        System.out.println("   • Cenário: Atendimento contínuo, chegadas esparsas");
+        System.out.println("   • Vantagem: Remoção muito rápida O(1)");
+        System.out.println("   • Desvantagem: Inserção pode ser custosa O(n)");
+
+        System.out.println("\n⚖️ FILA ENCADEADA vs ARRAY - VANTAGENS:");
+        System.out.println(repeat("-", 45));
+
+        System.out.println("\n🔗 LISTA ENCADEADA É MELHOR QUANDO:");
+        System.out.println("   1. Frequência alta de remoções (chamadas de pacientes)");
+        System.out.println("   2. Tamanho da fila varia muito dinamicamente");
+        System.out.println("   3. Não há limite pré-definido de capacidade");
+        System.out.println("   4. Prioridade dos elementos muda frequentemente");
+        System.out.println("   5. Sistema tem pouca memória disponível (sem desperdício)");
+
+        System.out.println("\n📊 ARRAY É MELHOR QUANDO:");
+        System.out.println("   1. Acesso frequente por índice");
+        System.out.println("   2. Capacidade conhecida e estável");
+        System.out.println("   3. Cache locality é importante");
+        System.out.println("   4. Overhead de ponteiros deve ser minimizado");
+        System.out.println("   5. Muitas inserções em batch");
+
+        System.out.println("\n💡 RECOMENDAÇÃO PRÁTICA:");
+        System.out.println(repeat("-", 25));
+        System.out.println("Para sistemas hospitalares reais:");
+        System.out.println("• Use ENCADEADA se atendimento é contínuo (pronto-socorro)");
+        System.out.println("• Use ARRAYLIST se chegadas são em lote (agendamentos)");
+        System.out.println("• Considere HEAP para grandes volumes com prioridades complexas");
+
+        System.out.println("\n" + repeat("=", 60));
+        System.out.println("=== EXERCÍCIO DE PRIORIZAÇÃO E COMPLEXIDADE FINALIZADO ===");
+        System.out.println(repeat("=", 60));
     }
 }

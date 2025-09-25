@@ -1,0 +1,513 @@
+=== SISTEMA DE ATENDIMENTO - CLÍNICA UNIVERSITÁRIA ===
+
+=== TESTE 1: FILA ORIGINAL (ArrayList) ===
+--------------------------------------------------
+1. ADICIONANDO PACIENTES NA FILA:
+----------------------------------------
+Paciente João Silva adicionado na fila normal
+Paciente Maria Santos adicionado na fila PRIORITÁRIA
+Paciente Pedro Oliveira adicionado na fila normal
+Paciente Ana Costa adicionado na fila PRIORITÁRIA
+Paciente Carlos Mendes adicionado na fila PRIORITÁRIA
+
+=== ESTADO DA FILA ===
+Fila Prioritária (3 pacientes):
+1. Maria Santos (Idade: 65)
+2. Ana Costa (Idade: 72)
+3. Carlos Mendes (Idade: 28)
+
+Fila Normal (2 pacientes):
+1. João Silva (Idade: 45)
+2. Pedro Oliveira (Idade: 30)
+========================
+
+2. ATENDENDO PACIENTES:
+----------------------------------------
+Atendendo paciente 1: Maria Santos
+Paciente Maria Santos foi atendido e adicionado à lista de atendidos
+
+Atendendo paciente 2: Ana Costa
+Paciente Ana Costa foi atendido e adicionado à lista de atendidos
+
+Atendendo paciente 3: Carlos Mendes
+Paciente Carlos Mendes foi atendido e adicionado à lista de atendidos
+
+3. PRÓXIMO PACIENTE A SER ATENDIDO:
+----------------------------------------
+Próximo: João Silva (Idade: 45, Prioridade: NÃO)
+
+4. LISTA DE PACIENTES ATENDIDOS:
+----------------------------------------
+
+=== PACIENTES ATENDIDOS ===
+1. Maria Santos - Idade: 65 - CPF: 234.567.890-12 - Prioridade: SIM
+2. Ana Costa - Idade: 72 - CPF: 456.789.012-34 - Prioridade: SIM
+3. Carlos Mendes - Idade: 28 - CPF: 567.890.123-45 - Prioridade: SIM
+Total de atendidos: 3
+============================
+
+5. ESTADO ATUAL DA FILA:
+----------------------------------------
+
+=== ESTADO DA FILA ===
+Fila Prioritária (0 pacientes):
+
+Fila Normal (2 pacientes):
+1. João Silva (Idade: 45)
+2. Pedro Oliveira (Idade: 30)
+========================
+
+6. DEMONSTRAÇÃO DE BUSCA:
+----------------------------------------
+✓ Paciente com CPF 234.567.890-12 já foi atendido: Maria Santos
+✗ Paciente com CPF 345.678.901-23 ainda não foi atendido.
+
+7. DESAFIO EXTRA - ESTATÍSTICAS:
+----------------------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 3
+Média de idade dos atendidos: 55,0 anos
+Pacientes com prioridade atendidos: 3
+Pacientes sem prioridade atendidos: 0
+=====================================
+
+8. FINALIZANDO ATENDIMENTOS:
+----------------------------------------
+Atendendo: João Silva
+Paciente João Silva foi atendido e adicionado à lista de atendidos
+Atendendo: Pedro Oliveira
+Paciente Pedro Oliveira foi atendido e adicionado à lista de atendidos
+
+9. ESTATÍSTICAS FINAIS:
+----------------------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 5
+Média de idade dos atendidos: 48,0 anos
+Pacientes com prioridade atendidos: 3
+Pacientes sem prioridade atendidos: 2
+=====================================
+
+
+=== TESTE 1 FINALIZADO ===
+
+=== TESTE 2: FILA CIRCULAR (Array Fixo) ===
+--------------------------------------------------
+1. ADICIONANDO PACIENTES NA FILA CIRCULAR:
+---------------------------------------------
+✓ Adicionado: Alice Ferreira
+✓ Adicionado: Bruno Lima
+✓ Adicionado: Carla Souza
+✓ Adicionado: Diego Pereira
+✓ Adicionado: Elena Martins
+
+Estado da fila: Tamanho = 5
+Próximo paciente: Alice Ferreira
+
+2. ATENDENDO PACIENTES (FILA CIRCULAR):
+---------------------------------------------
+Atendendo paciente 1: Alice Ferreira
+Paciente Alice Ferreira foi atendido e adicionado à lista de atendidos
+Atendendo paciente 2: Bruno Lima
+Paciente Bruno Lima foi atendido e adicionado à lista de atendidos
+Atendendo paciente 3: Carla Souza
+Paciente Carla Souza foi atendido e adicionado à lista de atendidos
+
+Estado da fila após atendimentos:
+Tamanho restante: 2
+Próximo paciente: Diego Pereira
+
+3. ADICIONANDO MAIS PACIENTES (TESTE CIRCULARIDADE):
+--------------------------------------------------
+✓ Adicionado: Felipe Santos (aproveitando espaço circular)
+✓ Adicionado: Gabriela Costa (aproveitando espaço circular)
+
+Tamanho final da fila: 4
+Finalizando atendimento: Diego Pereira
+Paciente Diego Pereira foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Elena Martins
+Paciente Elena Martins foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Felipe Santos
+Paciente Felipe Santos foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Gabriela Costa
+Paciente Gabriela Costa foi atendido e adicionado à lista de atendidos
+
+4. ESTATÍSTICAS FILA CIRCULAR:
+-----------------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 7
+Média de idade dos atendidos: 33,9 anos
+Pacientes com prioridade atendidos: 0
+Pacientes sem prioridade atendidos: 7
+=====================================
+
+
+=== TESTE 2 FINALIZADO ===
+
+=== TESTE 3: FILA ENCADEADA (Linked List) ===
+--------------------------------------------------
+1. ADICIONANDO PACIENTES NA FILA ENCADEADA:
+-----------------------------------------------
+✓ Adicionado: Hugo Oliveira
+✓ Adicionado: Isabela Rocha
+✓ Adicionado: Joaquim Silva
+✓ Adicionado: Karina Alves
+✓ Adicionado: Leonardo Dias
+
+Estado da fila: Tamanho = 5
+Próximo paciente: Hugo Oliveira
+
+2. ATENDENDO PACIENTES (FILA ENCADEADA):
+-----------------------------------------------
+Atendendo paciente 1: Hugo Oliveira
+Paciente Hugo Oliveira foi atendido e adicionado à lista de atendidos
+Atendendo paciente 2: Isabela Rocha
+Paciente Isabela Rocha foi atendido e adicionado à lista de atendidos
+Atendendo paciente 3: Joaquim Silva
+Paciente Joaquim Silva foi atendido e adicionado à lista de atendidos
+
+Estado da fila após atendimentos:
+Tamanho restante: 2
+Próximo paciente: Karina Alves
+
+3. ADICIONANDO MAIS PACIENTES (CAPACIDADE DINÂMICA):
+-------------------------------------------------------
+✓ Adicionado: Mariana Gomes (sem limite de capacidade)
+✓ Adicionado: Nicolas Barbosa (sem limite de capacidade)
+✓ Adicionado: Olívia Fernandes (sem limite de capacidade)
+
+Tamanho final da fila: 5
+Finalizando atendimento: Karina Alves
+Paciente Karina Alves foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Leonardo Dias
+Paciente Leonardo Dias foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Mariana Gomes
+Paciente Mariana Gomes foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Nicolas Barbosa
+Paciente Nicolas Barbosa foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Olívia Fernandes
+Paciente Olívia Fernandes foi atendido e adicionado à lista de atendidos
+
+4. ESTATÍSTICAS FILA ENCADEADA:
+--------------------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 8
+Média de idade dos atendidos: 39,4 anos
+Pacientes com prioridade atendidos: 0
+Pacientes sem prioridade atendidos: 8
+=====================================
+
+
+=== TESTE 3 FINALIZADO ===
+
+=== COMPARAÇÃO DAS IMPLEMENTAÇÕES ===
+--------------------------------------------------
+CARACTERÍSTICAS DAS IMPLEMENTAÇÕES:
+╔════════════════════════════════════════════════════════════════════╗
+║ IMPLEMENTAÇÃO        │ INSERÇÃO │ REMOÇÃO │ MEMÓRIA │ CAPACIDADE     ║
+╠════════════════════════════════════════════════════════════════════╣
+║ Fila Original        │   O(1)   │  O(n)   │ Dinâmica│ Ilimitada      ║
+║ (ArrayList)          │          │ (shift) │         │                ║
+╠════════════════════════════════════════════════════════════════════╣
+║ Fila Circular        │   O(1)   │  O(1)   │  Fixa   │ Limitada       ║
+║ (Array Fixo)         │          │         │         │ (definida)     ║
+╠════════════════════════════════════════════════════════════════════╣
+║ Fila Encadeada       │   O(1)   │  O(1)   │ Dinâmica│ Ilimitada      ║
+║ (Linked List)        │          │         │         │ (só memória)   ║
+╚════════════════════════════════════════════════════════════════════╝
+
+VANTAGENS E DESVANTAGENS:
+------------------------------
+
+🏥 FILA ORIGINAL (ArrayList):
+  ✓ Fácil implementação
+  ✓ Suporte a prioridade
+  ✗ Remoção custosa O(n) - desloca elementos
+  ✗ Ineficiente para muitas operações de dequeue
+
+🔄 FILA CIRCULAR (Array Fixo):
+  ✓ Inserção e remoção O(1)
+  ✓ Reutiliza espaço do array
+  ✓ Baixo overhead de memória
+  ✗ Capacidade limitada
+  ✗ Precisa dimensionamento correto
+
+🔗 FILA ENCADEADA (Linked List):
+  ✓ Inserção e remoção O(1)
+  ✓ Capacidade dinâmica ilimitada
+  ✓ Flexível para crescimento
+  ✗ Overhead de ponteiros
+  ✗ Localidade de memória pior
+
+📊 RECOMENDAÇÃO DE USO:
+-------------------------
+• Fila Circular: Para sistemas com capacidade conhecida e muitas operações
+• Fila Encadeada: Para sistemas com demanda variável e crescimento dinâmico
+• Fila Original: Para prototipagem rápida ou quando prioridade é necessária
+
+=== SISTEMA FINALIZADO ===
+
+============================================================
+=== NOVO EXERCÍCIO: PRIORIZAÇÃO E COMPLEXIDADE ===
+============================================================
+
+=== TESTE 4: FILA DE PRIORIDADE AVANÇADA (ArrayList) ===
+------------------------------------------------------------
+1. CRIANDO SIMULAÇÃO COM 10 PACIENTES (IDADES E URGÊNCIAS VARIADAS):
+----------------------------------------------------------------------
+👤 NORMAL: Ana Silva adicionado na fila normal
+🚨 URGENTE: Carlos Urgente adicionado na fila de emergência
+👴 IDOSO: Maria Idosa adicionado na fila de idosos
+👤 NORMAL: João Normal adicionado na fila normal
+🚨 URGENTE: Pedro Emergência adicionado na fila de emergência
+👴 IDOSO: Rosa Sênior adicionado na fila de idosos
+👤 NORMAL: Lucas Jovem adicionado na fila normal
+🚨 URGENTE: Sofia Crítica adicionado na fila de emergência
+👴 IDOSO: Alberto Aposentado adicionado na fila de idosos
+👤 NORMAL: Carla Normal adicionado na fila normal
+
+2. ESTADO INICIAL DA FILA:
+
+=== ESTADO COMPLETO DA FILA DE PRIORIDADE ===
+
+🚨 FILA URGENTE (3 pacientes):
+   1. Carlos Urgente (Idade: 35)
+   2. Pedro Emergência (Idade: 42)
+   3. Sofia Crítica (Idade: 55)
+
+👴 FILA IDOSOS (3 pacientes):
+   1. Maria Idosa (Idade: 75)
+   2. Rosa Sênior (Idade: 68)
+   3. Alberto Aposentado (Idade: 82)
+
+👤 FILA NORMAL (4 pacientes):
+   1. Ana Silva (Idade: 45)
+   2. João Normal (Idade: 28)
+   3. Lucas Jovem (Idade: 22)
+   4. Carla Normal (Idade: 38)
+
+TOTAL GERAL: 10 pacientes
+=============================================
+
+=== DISTRIBUIÇÃO DE PRIORIDADES ===
+🚨 Casos urgentes: 3 (30,0%)
+👴 Pacientes idosos: 3 (30,0%)
+👤 Pacientes normais: 4 (40,0%)
+===================================
+
+3. ATENDENDO TODOS OS PACIENTES (OBSERVAR ORDEM DE PRIORIDADE):
+-----------------------------------------------------------------
+🚨 Chamando paciente URGENTE: Carlos Urgente
+Atendimento #1: Carlos Urgente (Idade: 35, Urgente: SIM)
+Paciente Carlos Urgente foi atendido e adicionado à lista de atendidos
+🚨 Chamando paciente URGENTE: Pedro Emergência
+Atendimento #2: Pedro Emergência (Idade: 42, Urgente: SIM)
+Paciente Pedro Emergência foi atendido e adicionado à lista de atendidos
+🚨 Chamando paciente URGENTE: Sofia Crítica
+Atendimento #3: Sofia Crítica (Idade: 55, Urgente: SIM)
+Paciente Sofia Crítica foi atendido e adicionado à lista de atendidos
+👴 Chamando paciente IDOSO: Maria Idosa
+Atendimento #4: Maria Idosa (Idade: 75, Urgente: NÃO)
+Paciente Maria Idosa foi atendido e adicionado à lista de atendidos
+👴 Chamando paciente IDOSO: Rosa Sênior
+Atendimento #5: Rosa Sênior (Idade: 68, Urgente: NÃO)
+Paciente Rosa Sênior foi atendido e adicionado à lista de atendidos
+👴 Chamando paciente IDOSO: Alberto Aposentado
+Atendimento #6: Alberto Aposentado (Idade: 82, Urgente: NÃO)
+Paciente Alberto Aposentado foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: Ana Silva
+Atendimento #7: Ana Silva (Idade: 45, Urgente: NÃO)
+Paciente Ana Silva foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: João Normal
+Atendimento #8: João Normal (Idade: 28, Urgente: NÃO)
+Paciente João Normal foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: Lucas Jovem
+Atendimento #9: Lucas Jovem (Idade: 22, Urgente: NÃO)
+Paciente Lucas Jovem foi atendido e adicionado à lista de atendidos
+👤 Chamando paciente NORMAL: Carla Normal
+Atendimento #10: Carla Normal (Idade: 38, Urgente: NÃO)
+Paciente Carla Normal foi atendido e adicionado à lista de atendidos
+
+4. ESTATÍSTICAS FINAIS:
+-------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 10
+Média de idade dos atendidos: 49,0 anos
+Pacientes com prioridade atendidos: 3
+Pacientes sem prioridade atendidos: 7
+=====================================
+
+
+=== ANÁLISE DE PERFORMANCE ===
+Total de inserções: 10
+Tempo médio de inserção: 198350,00 nanosegundos
+Tempo médio de remoção: 97390,00 nanosegundos
+Complexidade inserção: O(1) - sempre adiciona no final
+Complexidade remoção: O(n) - remove(0) desloca elementos
+===============================
+
+=== TESTE 4 FINALIZADO ===
+
+=== TESTE 5: FILA DE PRIORIDADE ENCADEADA ===
+--------------------------------------------------
+1. ADICIONANDO OS MESMOS 10 PACIENTES NA FILA ENCADEADA:
+------------------------------------------------------------
+👤 NORMAL: Ana Silva adicionado (prioridade 3)
+🚨 URGENTE: Carlos Urgente adicionado (prioridade 1)
+👴 IDOSO: Maria Idosa adicionado (prioridade 2)
+👤 NORMAL: João Normal adicionado (prioridade 3)
+🚨 URGENTE: Pedro Emergência adicionado (prioridade 1)
+👴 IDOSO: Rosa Sênior adicionado (prioridade 2)
+👤 NORMAL: Lucas Jovem adicionado (prioridade 3)
+🚨 URGENTE: Sofia Crítica adicionado (prioridade 1)
+👴 IDOSO: Alberto Aposentado adicionado (prioridade 2)
+👤 NORMAL: Carla Normal adicionado (prioridade 3)
+
+2. ESTADO DA FILA ENCADEADA (JÁ ORDENADA POR PRIORIDADE):
+
+=== FILA DE PRIORIDADE ENCADEADA ===
+1. 🚨 Carlos Urgente (Idade: 35, Prioridade: 1)
+2. 🚨 Pedro Emergência (Idade: 42, Prioridade: 1)
+3. 🚨 Sofia Crítica (Idade: 55, Prioridade: 1)
+4. 👴 Maria Idosa (Idade: 75, Prioridade: 2)
+5. 👴 Rosa Sênior (Idade: 68, Prioridade: 2)
+6. 👴 Alberto Aposentado (Idade: 82, Prioridade: 2)
+7. 👤 Ana Silva (Idade: 45, Prioridade: 3)
+8. 👤 João Normal (Idade: 28, Prioridade: 3)
+9. 👤 Lucas Jovem (Idade: 22, Prioridade: 3)
+10. 👤 Carla Normal (Idade: 38, Prioridade: 3)
+
+Resumo: 3 urgentes, 3 idosos, 4 normais
+Total: 10 pacientes
+====================================
+
+3. ATENDENDO PACIENTES (FILA ENCADEADA):
+---------------------------------------------
+🚨 URGENTE: Chamando Carlos Urgente
+Atendimento #1: Carlos Urgente (Idade: 35, Urgente: SIM)
+Paciente Carlos Urgente foi atendido e adicionado à lista de atendidos
+🚨 URGENTE: Chamando Pedro Emergência
+Atendimento #2: Pedro Emergência (Idade: 42, Urgente: SIM)
+Paciente Pedro Emergência foi atendido e adicionado à lista de atendidos
+🚨 URGENTE: Chamando Sofia Crítica
+Atendimento #3: Sofia Crítica (Idade: 55, Urgente: SIM)
+Paciente Sofia Crítica foi atendido e adicionado à lista de atendidos
+👴 IDOSO: Chamando Maria Idosa
+Atendimento #4: Maria Idosa (Idade: 75, Urgente: NÃO)
+Paciente Maria Idosa foi atendido e adicionado à lista de atendidos
+👴 IDOSO: Chamando Rosa Sênior
+Atendimento #5: Rosa Sênior (Idade: 68, Urgente: NÃO)
+Paciente Rosa Sênior foi atendido e adicionado à lista de atendidos
+👴 IDOSO: Chamando Alberto Aposentado
+Atendimento #6: Alberto Aposentado (Idade: 82, Urgente: NÃO)
+Paciente Alberto Aposentado foi atendido e adicionado à lista de atendidos
+👤 NORMAL: Chamando Ana Silva
+Atendimento #7: Ana Silva (Idade: 45, Urgente: NÃO)
+Paciente Ana Silva foi atendido e adicionado à lista de atendidos
+👤 NORMAL: Chamando João Normal
+Atendimento #8: João Normal (Idade: 28, Urgente: NÃO)
+Paciente João Normal foi atendido e adicionado à lista de atendidos
+👤 NORMAL: Chamando Lucas Jovem
+Atendimento #9: Lucas Jovem (Idade: 22, Urgente: NÃO)
+Paciente Lucas Jovem foi atendido e adicionado à lista de atendidos
+👤 NORMAL: Chamando Carla Normal
+Atendimento #10: Carla Normal (Idade: 38, Urgente: NÃO)
+Paciente Carla Normal foi atendido e adicionado à lista de atendidos
+
+4. ESTATÍSTICAS DA IMPLEMENTAÇÃO ENCADEADA:
+---------------------------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 10
+Média de idade dos atendidos: 49,0 anos
+Pacientes com prioridade atendidos: 3
+Pacientes sem prioridade atendidos: 7
+=====================================
+
+
+=== ANÁLISE DE PERFORMANCE (ENCADEADA) ===
+Total de operações: 10
+Tempo médio de inserção: 354810,00 ns
+Tempo médio de remoção: 27700,00 ns
+Complexidade inserção: O(n) - busca posição correta
+Complexidade remoção: O(1) - sempre remove do início
+==========================================
+
+=== TESTE 5 FINALIZADO ===
+
+=== ANÁLISE COMPARATIVA DE COMPLEXIDADE ===
+==================================================
+
+📊 COMPLEXIDADE ALGORÍTMICA DAS IMPLEMENTAÇÕES:
+╔══════════════════════════════════════════════════════════════════════════╗
+║ ESTRUTURA              │ INSERÇÃO │ REMOÇÃO │ BUSCA │ ESPAÇO │ ORDEM    ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║ Fila Normal            │   O(1)   │  O(n)   │  N/A  │ O(n)   │ FIFO     ║
+║ Fila Circular          │   O(1)   │  O(1)   │  N/A  │ O(n)   │ FIFO     ║
+║ Fila Encadeada         │   O(1)   │  O(1)   │  N/A  │ O(n)   │ FIFO     ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║ Prioridade ArrayList   │   O(1)   │  O(n)   │ O(1)  │ O(n)   │ Por Prio ║
+║ Prioridade Encadeada   │   O(n)   │  O(1)   │ O(1)  │ O(n)   │ Por Prio ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+🔍 DISCUSSÃO DETALHADA:
+-------------------------
+
+1️⃣ FILA DE PRIORIDADE com ARRAYLIST:
+   ✅ INSERÇÃO O(1): Adiciona sempre no final da lista apropriada
+   ❌ REMOÇÃO O(n): remove(0) precisa deslocar todos os elementos
+   ✅ BUSCA O(1): Acesso direto ao primeiro elemento
+   📝 Mantém 3 listas separadas (urgente, idoso, normal)
+
+2️⃣ FILA DE PRIORIDADE ENCADEADA:
+   ❌ INSERÇÃO O(n): Precisa encontrar posição correta na ordem
+   ✅ REMOÇÃO O(1): Remove sempre do início, sem deslocamentos
+   ✅ BUSCA O(1): Acesso direto ao primeiro nó
+   📝 Mantém ordem única por prioridade usando ponteiros
+
+🚀 QUANDO USAR CADA ESTRUTURA:
+-----------------------------------
+
+🏥 FILA DE PRIORIDADE ARRAYLIST:
+   • Ideal quando: Muitas inserções, poucas remoções
+   • Cenário: Cadastro em lote, atendimento esporádico
+   • Vantagem: Inserção muito rápida O(1)
+   • Desvantagem: Remoção custosa O(n)
+
+🔗 FILA DE PRIORIDADE ENCADEADA:
+   • Ideal quando: Muitas remoções, inserções controladas
+   • Cenário: Atendimento contínuo, chegadas esparsas
+   • Vantagem: Remoção muito rápida O(1)
+   • Desvantagem: Inserção pode ser custosa O(n)
+
+⚖️ FILA ENCADEADA vs ARRAY - VANTAGENS:
+---------------------------------------------
+
+🔗 LISTA ENCADEADA É MELHOR QUANDO:
+   1. Frequência alta de remoções (chamadas de pacientes)
+   2. Tamanho da fila varia muito dinamicamente
+   3. Não há limite pré-definido de capacidade
+   4. Prioridade dos elementos muda frequentemente
+   5. Sistema tem pouca memória disponível (sem desperdício)
+
+📊 ARRAY É MELHOR QUANDO:
+   1. Acesso frequente por índice
+   2. Capacidade conhecida e estável
+   3. Cache locality é importante
+   4. Overhead de ponteiros deve ser minimizado
+   5. Muitas inserções em batch
+
+💡 RECOMENDAÇÃO PRÁTICA:
+-------------------------
+Para sistemas hospitalares reais:
+• Use ENCADEADA se atendimento é contínuo (pronto-socorro)
+• Use ARRAYLIST se chegadas são em lote (agendamentos)
+• Considere HEAP para grandes volumes com prioridades complexas
+
+============================================================
+=== EXERCÍCIO DE PRIORIZAÇÃO E COMPLEXIDADE FINALIZADO ===
+============================================================
