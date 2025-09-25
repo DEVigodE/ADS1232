@@ -69,7 +69,7 @@ O objetivo é praticar conceitos de **POO** como:
 - **[Lista 3](./lista3/README.md)** → **🆕 Estruturas de Dados com Pilhas** - Implementação e aplicação prática de pilhas em diferentes cenários.
 - **[Lista 4](./Lista4/README.md)** → *(Atualizada recentemente)*
 - **[Controle de Pratos na Cantina](./ControlePratosCantina/README.md)** → **🆕 Aplicação Prática de Pilhas** - Sistema realista de controle de pratos usando estrutura LIFO.
-- **[Atendimento da Clínica Universitária](./AtendimentoClinicaUniversitaria/README.md)** → **🆕 Sistema com Filas e Listas** - Demonstra uso combinado de Queue (fila de pacientes) e List (pacientes atendidos) com sistema de prioridade.
+- **[Atendimento da Clínica Universitária](./AtendimentoClinicaUniversitaria/README.md)** → **🆕 Sistema com Filas e Listas** - Demonstra uso combinado de Queue (fila de pacientes) e List (pacientes atendidos) com sistema de prioridade, estatísticas e relatórios.
 - **[Sistema PDV](./PDV/)** → **Sistema de Ponto de Venda** - Aplicação prática de **Pilhas** e **Filas** em um sistema comercial completo.
 
 ---
@@ -128,6 +128,9 @@ O objetivo é praticar conceitos de **POO** como:
   - ⏳ **Fila de Pacientes**: Gerencia a ordem de atendimento
   - 📋 **Lista de Pacientes Atendidos**: Histórico dos atendimentos
   - ⚙️ **Sistema de Prioridade**: Atende pacientes com base em critérios definidos
+  - 🔄 **Fila Circular e Encadeada**: Implementações que otimizam espaço e desempenho, com comparação de eficiência entre array e lista encadeada.
+  - 🏷️ **Priorização e Complexidade**: Fila de prioridade para idosos (≥60 anos) e casos urgentes, inserção prioritária.
+  - 📈 **Estatísticas e Relatórios**: Métodos para contar atendidos, calcular média de idade, encontrar paciente mais idoso e exportar relatório diário em .txt.
 - **Sistema PDV**: **Aplicação Comercial Completa** - Sistema de Ponto de Venda implementando:
   - 🛒 **Filas** para gerenciamento de clientes e pedidos
   - 📚 **Pilhas** para histórico de operações
@@ -162,10 +165,14 @@ O **Sistema de Atendimento da Clínica** é uma aplicação educativa que demons
 
 ### 📋 Funcionalidades Implementadas:
 - **Fila de Pacientes (Queue)**: Gerencia ordem de atendimento com sistema FIFO
-- **Sistema de Prioridade**: Fila separada para idosos (≥60 anos) e casos urgentes
+- **Fila Circular de Pacientes**: Otimiza o uso do array, evitando deslocamento de elementos.
+- **Fila Encadeada de Pacientes**: Implementação baseada em nós (Linked List), eficiente para inserções e remoções.
+- **Comparação de Eficiência**: Discussão sobre desempenho e complexidade das diferentes implementações de fila.
+- **Sistema de Prioridade**: Fila separada para idosos (≥60 anos) e casos urgentes (campo urgente), inserção prioritária.
 - **Lista de Atendidos**: Histórico completo dos pacientes já consultados
 - **Busca Inteligente**: Localização de pacientes por CPF na lista de atendidos
-- **Estatísticas em Tempo Real**: Média de idade, distribuição por prioridade
+- **Estatísticas em Tempo Real**: Média de idade, distribuição por prioridade, paciente mais idoso
+- **Relatório Diário**: Geração de relatório com total de atendidos, média de idade, paciente mais idoso e exportação em .txt
 
 ### 🔧 Conceitos de Estruturas de Dados:
 - **FIFO (First In, First Out)**: Princípio fundamental das filas implementado com prioridade
@@ -173,28 +180,8 @@ O **Sistema de Atendimento da Clínica** é uma aplicação educativa que demons
 - **Operações Queue**: enqueue (adicionar), dequeue (remover), peek (consultar)
 - **Operações List**: add, search, display com algoritmos de busca linear
 - **Modelagem Real**: Simula situações práticas de gerenciamento hospitalar
-
----
-
-## 🏪 Sistema PDV - Características Especiais
-
-O **Sistema de Ponto de Venda** é um projeto prático que demonstra a aplicação real de estruturas de dados em um contexto comercial:
-
-### 📋 Funcionalidades Principais:
-- **Gestão de Clientes**: Cadastro completo com endereço e validações
-- **Processamento de Pedidos**: Controle de status e itens
-- **Fila de Atendimento**: Clientes aguardam atendimento em ordem
-- **Fila de Pedidos**: Pedidos aguardam processamento sequencial
-- **Histórico com Pilhas**: Operações podem ser desfeitas (undo)
-
-### 🔧 Estruturas de Dados Implementadas:
-- **FilaSimples**: Implementação genérica de fila com array
-- **PilhaEncadeada**: Implementação de pilha com lista encadeada
-- **Modelagem OO**: Classes bem estruturadas seguindo princípios SOLID
-
----
-
-✍️ **Observação**: Cada lista possui **arquivos de UML** (`.mmd` e `.png`) para facilicar a visualização dos diagramas de classe.
+- **Complexidade Algorítmica**: Discussão sobre O(1) e O(n) nas operações de fila normal vs fila de prioridade
+- **Vantagens de Estruturas**: Quando usar array, lista encadeada ou fila de prioridade na prática
 
 ---
 
@@ -205,4 +192,4 @@ O **Sistema de Ponto de Venda** é um projeto prático que demonstra a aplicaç�
 - **🆕 Controle de Pratos na Cantina** - Nova aplicação prática demonstrando o uso de pilhas em um contexto realista e educativo. Sistema completo com tratamento de erros e visualização do estado.
 - A **Lista 4** foi adicionada recentemente ao repositório.
 - O **Sistema PDV** combina **Pilhas** e **Filas** em uma aplicação comercial real, demonstrando o uso prático dessas estruturas em sistemas de produção.
-- **🆕 Atendimento da Clínica Universitária** - Novo sistema demonstrando o uso de filas e listas em um contexto de atendimento médico, com gerenciamento de pacientes e prioridades.
+- **🆕 Atendimento da Clínica Universitária** - Novo sistema demonstrando o uso de filas e listas em um contexto de atendimento médico, com gerenciamento de pacientes, prioridades, estatísticas e relatórios.
