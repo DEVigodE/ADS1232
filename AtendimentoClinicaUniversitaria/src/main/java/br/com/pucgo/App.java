@@ -2,6 +2,7 @@ package br.com.pucgo;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 /**
  * Sistema de Atendimento da Clínica Universitária
@@ -13,6 +14,250 @@ public class App
     public static void main( String[] args )
     {
         System.out.println("=== SISTEMA DE ATENDIMENTO - CLÍNICA UNIVERSITÁRIA ===\n");
+
+        exibirMenuPrincipal();
+    }
+
+    /**
+     * Exibe menu principal com opções disponíveis
+     */
+    private static void exibirMenuPrincipal() {
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+
+        do {
+            System.out.println("\n" + repeat("=", 60));
+            System.out.println("📋 MENU PRINCIPAL - SISTEMA DA CLÍNICA UNIVERSITÁRIA");
+            System.out.println(repeat("=", 60));
+            System.out.println("1️⃣  Fila Simples com Banco de Dados (PostgreSQL)");
+            System.out.println("2️⃣  Teste da Fila Original (ArrayList)");
+            System.out.println("3️⃣  Teste da Fila Circular (Array Fixo)");
+            System.out.println("4️⃣  Teste da Fila Encadeada (Linked List)");
+            System.out.println("5️⃣  Teste de Prioridade e Complexidade");
+            System.out.println("6️⃣  Comparação de Performance");
+            System.out.println("7️⃣  Executar Todos os Testes");
+            System.out.println("0️⃣  Sair");
+            System.out.println(repeat("-", 60));
+            System.out.print("📝 Escolha uma opção: ");
+
+            try {
+                opcao = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+
+                switch (opcao) {
+                    case 1:
+                        testeFilaComBancoDados();
+                        break;
+                    case 2:
+                        testeFilaOriginal();
+                        break;
+                    case 3:
+                        testeFilaCircular();
+                        break;
+                    case 4:
+                        testeFilaEncadeada();
+                        break;
+                    case 5:
+                        testePrioridadeEComplexidade();
+                        break;
+                    case 6:
+                        comparacaoPerformance();
+                        break;
+                    case 7:
+                        executarTodosOsTestes();
+                        break;
+                    case 0:
+                        System.out.println("\n👋 Obrigado por usar o Sistema da Clínica Universitária!");
+                        break;
+                    default:
+                        System.out.println("❌ Opção inválida! Tente novamente.");
+                }
+            } catch (Exception e) {
+                System.out.println("❌ Entrada inválida! Digite apenas números.");
+                scanner.nextLine(); // Clear invalid input
+                opcao = -1;
+            }
+        } while (opcao != 0);
+
+        scanner.close();
+    }
+
+    /**
+     * NOVO: Teste da Fila Simples integrada com Banco de Dados
+     */
+    private static void testeFilaComBancoDados() {
+        System.out.println("\n" + repeat("=", 60));
+        System.out.println("🗄️  TESTE: FILA SIMPLES COM BANCO DE DADOS");
+        System.out.println(repeat("=", 60));
+
+        FilaSimplesDatabaseService filaDB = new FilaSimplesDatabaseService();
+
+        // Testa conexão
+        if (!filaDB.testarConexao()) {
+            System.out.println("❌ Não foi possível conectar ao banco de dados!");
+            System.out.println("💡 Verifique se o Docker está rodando: db-manager.bat start");
+            return;
+        }
+
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+
+        do {
+            System.out.println("\n" + repeat("-", 50));
+            System.out.println("🏥 MENU DA FILA COM BANCO DE DADOS");
+            System.out.println(repeat("-", 50));
+            System.out.println("1️⃣  Adicionar Paciente");
+            System.out.println("2️⃣  Ver Fila Atual");
+            System.out.println("3️⃣  Chamar Próximo Paciente");
+            System.out.println("4️⃣  Finalizar Atendimento");
+            System.out.println("5️⃣  Consultar Posição de Paciente");
+            System.out.println("6️⃣  Remover Paciente da Fila");
+            System.out.println("7️⃣  Estatísticas de Hoje");
+            System.out.println("8️⃣  Listar Atendidos Hoje");
+            System.out.println("9️⃣  Carregar Dados de Exemplo");
+            System.out.println("0️⃣  Voltar ao Menu Principal");
+            System.out.println(repeat("-", 50));
+            System.out.print("📝 Escolha uma opção: ");
+
+            try {
+                opcao = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+
+                switch (opcao) {
+                    case 1:
+                        adicionarPacienteViaConsole(scanner, filaDB);
+                        break;
+                    case 2:
+                        filaDB.exibirFilaAtual();
+                        break;
+                    case 3:
+                        Paciente chamado = filaDB.chamarProximoPaciente();
+                        if (chamado == null) {
+                            System.out.println("ℹ️ Nenhum paciente na fila para chamar");
+                        }
+                        break;
+                    case 4:
+                        finalizarAtendimentoViaConsole(scanner, filaDB);
+                        break;
+                    case 5:
+                        consultarPosicaoViaConsole(scanner, filaDB);
+                        break;
+                    case 6:
+                        removerPacienteViaConsole(scanner, filaDB);
+                        break;
+                    case 7:
+                        filaDB.exibirEstatisticasHoje();
+                        break;
+                    case 8:
+                        filaDB.listarAtendidosHoje();
+                        break;
+                    case 9:
+                        carregarDadosDeExemplo(filaDB);
+                        break;
+                    case 0:
+                        System.out.println("🔙 Retornando ao menu principal...");
+                        break;
+                    default:
+                        System.out.println("❌ Opção inválida! Tente novamente.");
+                }
+            } catch (Exception e) {
+                System.out.println("❌ Entrada inválida! Digite apenas números.");
+                scanner.nextLine(); // Clear invalid input
+                opcao = -1;
+            }
+        } while (opcao != 0);
+
+        filaDB.fecharConexao();
+    }
+
+    private static void adicionarPacienteViaConsole(Scanner scanner, FilaSimplesDatabaseService filaDB) {
+        System.out.println("\n➕ ADICIONAR NOVO PACIENTE:");
+
+        System.out.print("Nome completo: ");
+        String nome = scanner.nextLine();
+
+        System.out.print("Idade: ");
+        int idade = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("CPF (formato: 000.000.000-00): ");
+        String cpf = scanner.nextLine();
+
+        System.out.print("É caso urgente? (s/N): ");
+        String urgente = scanner.nextLine();
+        boolean isUrgente = urgente.toLowerCase().startsWith("s");
+
+        Paciente novoPaciente = new Paciente(nome, idade, cpf, false, isUrgente);
+        filaDB.adicionarPaciente(novoPaciente);
+    }
+
+    private static void finalizarAtendimentoViaConsole(Scanner scanner, FilaSimplesDatabaseService filaDB) {
+        System.out.println("\n✅ FINALIZAR ATENDIMENTO:");
+
+        System.out.print("CPF do paciente: ");
+        String cpf = scanner.nextLine();
+
+        System.out.print("Tipo de atendimento: ");
+        String tipo = scanner.nextLine();
+
+        System.out.print("Observações: ");
+        String obs = scanner.nextLine();
+
+        System.out.print("Médico responsável: ");
+        String medico = scanner.nextLine();
+
+        filaDB.finalizarAtendimento(cpf, tipo, obs, medico);
+    }
+
+    private static void consultarPosicaoViaConsole(Scanner scanner, FilaSimplesDatabaseService filaDB) {
+        System.out.println("\n🔍 CONSULTAR POSIÇÃO NA FILA:");
+        System.out.print("CPF do paciente: ");
+        String cpf = scanner.nextLine();
+        filaDB.consultarPosicaoPaciente(cpf);
+    }
+
+    private static void removerPacienteViaConsole(Scanner scanner, FilaSimplesDatabaseService filaDB) {
+        System.out.println("\n❌ REMOVER PACIENTE DA FILA:");
+
+        System.out.print("CPF do paciente: ");
+        String cpf = scanner.nextLine();
+
+        System.out.print("Motivo da remoção: ");
+        String motivo = scanner.nextLine();
+
+        filaDB.removerDaFila(cpf, motivo);
+    }
+
+    private static void carregarDadosDeExemplo(FilaSimplesDatabaseService filaDB) {
+        System.out.println("\n📁 CARREGANDO DADOS DE EXEMPLO...");
+
+        Paciente[] exemplos = {
+            new Paciente("João Silva", 45, "123.456.789-01"),
+            new Paciente("Maria Santos", 65, "234.567.890-12"), // Idosa
+            new Paciente("Pedro Oliveira", 30, "345.678.901-23"),
+            new Paciente("Ana Costa", 72, "456.789.012-34"), // Idosa
+            new Paciente("Carlos Urgente", 35, "567.890.123-45", false, true), // Urgente
+            new Paciente("Rosa Sênior", 68, "666.666.666-66"), // Idosa
+            new Paciente("Lucas Jovem", 22, "777.777.777-77"),
+            new Paciente("Sofia Crítica", 55, "888.888.888-88", false, true) // Urgente
+        };
+
+        int adicionados = 0;
+        for (Paciente p : exemplos) {
+            if (filaDB.adicionarPaciente(p)) {
+                adicionados++;
+            }
+        }
+
+        System.out.println("✅ " + adicionados + " pacientes de exemplo adicionados!");
+        System.out.println("💡 Use a opção 2 para ver a fila organizada por prioridade");
+    }
+
+    /**
+     * Executa todos os testes originais
+     */
+    private static void executarTodosOsTestes() {
+        System.out.println("\n🚀 EXECUTANDO TODOS OS TESTES...\n");
 
         // Teste da implementação original
         testeFilaOriginal();
@@ -499,7 +744,7 @@ public class App
 
         System.out.println("\n1️⃣ FILA DE PRIORIDADE com ARRAYLIST:");
         System.out.println("   ✅ INSERÇÃO O(1): Adiciona sempre no final da lista apropriada");
-        System.out.println("   ❌ REMOÇÃO O(n): remove(0) precisa deslocar todos os elementos");
+        System.out.println("   ❌ REMOÇÃO O(n): removes(0) precisa deslocar todos os elementos");
         System.out.println("   ✅ BUSCA O(1): Acesso direto ao primeiro elemento");
         System.out.println("   📝 Mantém 3 listas separadas (urgente, idoso, normal)");
 

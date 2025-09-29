@@ -2,7 +2,7 @@
 
 ## 📋 Descrição do Projeto
 
-Este projeto implementa um **sistema de atendimento médico** que demonstra o uso prático das estruturas de dados **Fila (Queue)** e **Lista (List)** em Java. O sistema simula o funcionamento de uma clínica universitária, gerenciando pacientes desde a chegada até o atendimento completo, com **três níveis de implementação progressiva**.
+Este projeto implementa um **sistema completo de atendimento médico** que demonstra o uso prático das estruturas de dados **Fila (Queue)** e **Lista (List)** em Java, incluindo **persistência em banco de dados PostgreSQL**. O sistema simula o funcionamento de uma clínica universitária, gerenciando pacientes desde a chegada até o atendimento completo, com múltiplas implementações e análise de complexidade algorítmica.
 
 ## 🎯 Objetivos Educacionais
 
@@ -13,261 +13,364 @@ Este projeto implementa um **sistema de atendimento médico** que demonstra o us
 - **🆕 Implementar Fila Circular e Encadeada**: Otimização de espaço e desempenho
 - **🆕 Sistema de Priorização Avançada**: Fila de prioridade com análise de complexidade
 - **🆕 Geração de Estatísticas e Relatórios**: Sistema completo com exportação
+- **🆕 Persistência em Banco de Dados**: Sistema real com PostgreSQL e Docker
+- **🆕 Análise de Complexidade**: Comparação detalhada entre implementações
 
 ## 🏗️ Estrutura do Sistema
 
-### 📁 Classes Implementadas
+### 📁 Classes Java Implementadas
 
 ```
 src/main/java/br/com/pucgo/
-├── Paciente.java                    # Modelo de dados do paciente
-├── FilaDePacientes.java             # Implementação de fila básica
-├── FilaCircularDePacientes.java     # 🆕 Fila circular otimizada
-├── FilaEncadeadaDePacientes.java    # 🆕 Fila encadeada com nós
-├── FilaPrioridadeEncadeada.java     # 🆕 Fila de prioridade encadeada
-├── FilaPrioridadeAvancada.java      # 🆕 Sistema de prioridade complexo
-├── ListaDeAtendidos.java            # Lista de pacientes atendidos
-└── App.java                         # Programa principal com simulação completa
+├── Paciente.java                       # Modelo de dados do paciente
+├── FilaDePacientes.java                # Implementação de fila básica
+├── FilaCircularDePacientes.java        # 🆕 Fila circular otimizada
+├── FilaEncadeadaDePacientes.java       # 🆕 Fila encadeada com nós
+├── FilaPrioridadeEncadeada.java        # 🆕 Fila de prioridade encadeada
+├── FilaPrioridadeAvancada.java         # 🆕 Sistema de prioridade complexo
+├── FilaSimplesDatabaseService.java     # 🆕 Serviço de banco de dados
+├── ListaDeAtendidos.java               # Lista de pacientes atendidos
+└── App.java                            # Programa principal com menu interativo
 ```
 
-### 👤 **Classe Paciente**
-- **Atributos**: nome, idade, CPF, prioridade, urgente
-- **Prioridade automática**: Pacientes ≥60 anos recebem prioridade
-- **Casos urgentes**: Campo booleano para emergências médicas
-- **Métodos**: getters, setters, toString, equals (por CPF)
+### 🗄️ Sistema de Banco de Dados PostgreSQL
+
+```
+database/
+├── init/
+│   ├── 01-create-tables.sql           # Criação de tabelas e índices
+│   ├── 02-functions-triggers.sql      # Funções e triggers automáticos
+│   ├── 03-views-procedures.sql        # Views e procedures úteis
+│   └── 04-sample-data.sql             # Dados de exemplo
+├── docker-compose.yml                 # Configuração Docker
+├── database.properties                # Configurações de conexão
+├── db-manager.bat                     # Script utilitário Windows
+└── README-DATABASE.md                 # Documentação completa do banco
+```
+
+## 🚀 **NOVA FUNCIONALIDADE: Fila Simples com Banco de Dados**
+
+### 🗄️ **Sistema Completo de Persistência**
+- **Banco PostgreSQL**: Rodando em container Docker
+- **Priorização Automática**: Sistema inteligente de 3 níveis
+- **Triggers Automáticos**: Inserção automática na fila
+- **Views Otimizadas**: Consultas rápidas e relatórios
+- **Auditoria Completa**: Histórico de todas as operações
+
+### 🏥 **Funcionalidades do Sistema com Banco**
+1. **➕ Adicionar Paciente** - Cadastro automático na fila
+2. **📋 Ver Fila Atual** - Visualização organizada por prioridade
+3. **🔔 Chamar Próximo** - Chamada automática respeitando prioridades
+4. **✅ Finalizar Atendimento** - Registro completo do atendimento
+5. **🔍 Consultar Posição** - Busca por CPF com tempo de espera
+6. **❌ Remover da Fila** - Remoção com motivo registrado
+7. **📊 Estatísticas** - Relatórios em tempo real
+8. **📋 Atendidos Hoje** - Lista completa dos atendimentos
+9. **📁 Dados de Exemplo** - Carregamento automático para testes
+
+### 📊 **Schema do Banco de Dados**
+
+#### Tabelas Principais:
+- **`clinica.pacientes`** - Cadastro geral de pacientes
+- **`clinica.fila_atendimento`** - Controle da fila com prioridades
+- **`clinica.atendimentos`** - Registro de todos os atendimentos
+- **`clinica.historico_fila`** - Auditoria de movimentações
+
+#### Funcionalidades Automáticas:
+- **Priorização Inteligente**: URGENTE → IDOSO (≥60) → NORMAL
+- **Reorganização Automática**: Triggers mantêm a fila ordenada
+- **Cálculo de Tempo**: Tempo de espera automático
+- **Relatórios Dinâmicos**: Views para estatísticas instantâneas
 
 ## 📊 **Implementações de Fila Disponíveis**
 
-### 🔄 **1. Fila Circular de Pacientes**
+### 🗄️ **1. Fila Simples com Banco de Dados (NOVO)**
+- **Persistência Real**: Dados salvos em PostgreSQL
+- **Priorização Automática**: Sistema inteligente de 3 níveis
+- **Auditoria Completa**: Histórico de todas as operações
+- **Interface Intuitiva**: Menus organizados e feedback visual
+- **Estatísticas Avançadas**: Relatórios em tempo real
+
+### 🔄 **2. Fila Circular de Pacientes**
 - **Otimização de espaço**: Reutiliza posições do array sem deslocamento
 - **Eficiência O(1)**: Inserção e remoção em tempo constante
 - **Sem desperdício**: Aproveitamento máximo do array alocado
 - **Controle de índices**: Usa módulo para navegação circular
 
-### 🔗 **2. Fila Encadeada de Pacientes** 
+### 🔗 **3. Fila Encadeada de Pacientes** 
 - **Estrutura de nós**: Implementação baseada em Linked List
 - **Memória dinâmica**: Cresce conforme necessário
 - **Eficiência de inserção**: O(1) para início e fim
 - **Flexibilidade**: Sem limitação de tamanho pré-definido
 
-### 🏷️ **3. Fila de Prioridade Avançada**
+### 🏷️ **4. Fila de Prioridade Avançada**
 - **Três níveis de prioridade**:
   - 🚨 **URGENTE**: Casos críticos (inserção no início)
   - 👴 **IDOSOS**: Pacientes ≥60 anos
   - 👤 **NORMAL**: Demais pacientes
 - **Ordem de atendimento**: URGENTE → IDOSOS → NORMAL
-- **Complexidade**: 
-  - Inserção: O(1) para urgente/normal, O(n) para idosos
-  - Remoção: O(1) sempre
+- **Complexidade**: Análise detalhada de performance
 
-### 📈 **4. Sistema de Estatísticas e Relatórios**
+### 📈 **5. Sistema de Estatísticas e Relatórios**
 - **Contadores em tempo real**: Total de atendidos por categoria
 - **Cálculos automáticos**: Média de idade, percentuais
 - **Identificação de extremos**: Paciente mais idoso/jovem
 - **Exportação de relatório**: Arquivo .txt com dados completos
 - **Histórico detalhado**: Lista completa com classificações
 
-## 🎮 Demonstração do Sistema
+## 🎮 Menu Interativo do Sistema
 
-O programa principal executa **comparações entre diferentes implementações**:
+O programa principal agora oferece um **menu interativo completo**:
 
-### **Teste 1: Fila Original (ArrayList)**
+### **🗄️ Opção 1: Fila Simples com Banco de Dados (PostgreSQL)**
+- Sistema completo com persistência real
+- Interface web-like com menu intuitivo
+- Operações CRUD completas
+- Relatórios em tempo real
+
+### **📋 Opção 2: Teste da Fila Original (ArrayList)**
 - Sistema básico com duas filas separadas
 - Demonstração de operações FIFO com prioridade
 
-### **Teste 2: Fila Circular**
+### **🔄 Opção 3: Teste da Fila Circular (Array Fixo)**
 - Otimização de espaço no array
 - Comparação de eficiência com implementação original
 
-### **Teste 3: Fila Encadeada**
+### **🔗 Opção 4: Teste da Fila Encadeada (Linked List)**
 - Implementação com nós dinâmicos
 - Análise de vantagens/desvantagens vs array
 
-### **Teste 4: Fila de Prioridade Complexa**
+### **🏷️ Opção 5: Teste de Prioridade e Complexidade**
 - Sistema com três níveis de prioridade
-- Simulação de um dia completo na clínica
+- Análise comparativa detalhada
 
-## ▶️ Como Executar
+### **📊 Opção 6: Comparação de Performance**
+- Tabela comparativa de complexidades
+- Recomendações de uso para cada implementação
 
-### Opção 1: Compilação Manual
-```bash
-# Navegue até o diretório do projeto
-cd AtendimentoClinicaUniversitaria
+### **🚀 Opção 7: Executar Todos os Testes**
+- Execução sequencial de todos os sistemas
+- Demonstração completa das funcionalidades
 
-# Compile as classes
-javac -d target/classes -cp src/main/java src/main/java/br/com/pucgo/*.java
+## ⚙️ Configuração e Instalação
 
-# Execute o programa
-java -cp target/classes br.com.pucgo.App
+### 🐳 **Pré-requisitos para Banco de Dados**
+- Docker Desktop instalado
+- 4GB de RAM disponível
+- Porta 5433 livre (ou configurar outra no docker-compose.yml)
+
+### 📦 **Dependências Maven**
+```xml
+<dependencies>
+    <!-- PostgreSQL JDBC Driver -->
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.7.1</version>
+    </dependency>
+    
+    <!-- JUnit para testes -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
 ```
 
-### Opção 2: Maven (se configurado)
+### ▶️ **Como Executar**
+
+#### **Opção 1: Sistema Completo com Banco (Recomendado)**
 ```bash
-cd AtendimentoClinicaUniversitaria
+# 1. Iniciar o banco PostgreSQL
+db-manager.bat start
+
+# 2. Compilar e executar a aplicação
+mvn clean compile
+mvn exec:java -Dexec.mainClass="br.com.pucgo.App"
+
+# 3. Escolher opção 1 no menu
+```
+
+#### **Opção 2: Apenas Testes em Memória**
+```bash
+# Compilação manual
+javac -d target/classes -cp src/main/java src/main/java/br/com/pucgo/*.java
+java -cp target/classes br.com.pucgo.App
+
+# Maven
 mvn compile exec:java -Dexec.mainClass="br.com.pucgo.App"
 ```
 
-## 📊 Exemplos de Saída
+#### **Opção 3: Gerenciamento do Banco**
+```bash
+# Iniciar banco
+db-manager.bat start
 
-### **Sistema Básico**
+# Ver logs
+db-manager.bat logs
+
+# Parar banco
+db-manager.bat stop
+
+# Status
+db-manager.bat status
+
+# Reset completo (CUIDADO: apaga dados!)
+db-manager.bat reset
+```
+
+## 📊 **Análise de Complexidade Algorítmica**
+
+### 🔍 **Comparação Detalhada das Implementações**
+
+| ESTRUTURA                | INSERÇÃO | REMOÇÃO | BUSCA | ESPAÇO | ORDEM      |
+|--------------------------|----------|---------|-------|--------|------------|
+| **Fila Normal**          | O(1)     | O(n)    | N/A   | O(n)   | FIFO       |
+| **Fila Circular**        | O(1)     | O(1)    | N/A   | O(n)   | FIFO       |
+| **Fila Encadeada**       | O(1)     | O(1)    | N/A   | O(n)   | FIFO       |
+| **Fila com Banco**       | O(1)*    | O(1)*   | O(1)  | ∞      | Por Prio   |
+| **Prioridade ArrayList** | O(1)     | O(n)    | O(1)  | O(n)   | Por Prio   |
+| **Prioridade Encadeada** | O(n)     | O(1)    | O(1)  | O(n)   | Por Prio   |
+
+*\* Complexidade do banco pode variar com índices e otimizações*
+
+### 🎯 **Recomendações de Uso**
+
+#### **🗄️ Fila com Banco de Dados - USE QUANDO:**
+- Sistema real de produção
+- Necessário histórico e auditoria
+- Múltiplos usuários/aplicações
+- Relatórios gerenciais importantes
+- Dados não podem ser perdidos
+
+#### **🔄 Fila Circular - USE QUANDO:**
+- Capacidade conhecida e limitada
+- Muitas operações de inserção/remoção
+- Memória limitada
+- Performance crítica
+
+#### **🔗 Fila Encadeada - USE QUANDO:**
+- Tamanho varia muito dinamicamente
+- Não há limite pré-definido
+- Inserções/remoções frequentes
+- Flexibilidade é prioritária
+
+#### **🏷️ Fila de Prioridade - USE QUANDO:**
+- Diferentes níveis de urgência
+- Atendimento não é estritamente FIFO
+- Classificação automática necessária
+- Relatórios por categoria importantes
+
+## 📊 **Exemplos de Saída do Sistema**
+
+### **🗄️ Sistema com Banco de Dados**
 ```
 === SISTEMA DE ATENDIMENTO - CLÍNICA UNIVERSITÁRIA ===
 
-1. ADICIONANDO PACIENTES NA FILA:
-Paciente João Silva adicionado na fila normal
-Paciente Maria Santos adicionado na fila PRIORITÁRIA
-Paciente Pedro Oliveira adicionado na fila normal
-Paciente Ana Costa adicionado na fila PRIORITÁRIA
-Paciente Carlos Mendes adicionado na fila PRIORITÁRIA
-
-=== ESTADO DA FILA ===
-Fila Prioritária (3 pacientes):
-1. Maria Santos (Idade: 65)
-2. Ana Costa (Idade: 72)
-3. Carlos Mendes (Idade: 28)
-
-Fila Normal (2 pacientes):
-1. João Silva (Idade: 45)
-2. Pedro Oliveira (Idade: 30)
-
-2. ATENDENDO PACIENTES:
-Atendendo paciente 1: Maria Santos
-Atendendo paciente 2: Ana Costa
-Atendendo paciente 3: Carlos Mendes
-
-=== PACIENTES ATENDIDOS ===
-1. Maria Santos - Idade: 65 - CPF: 234.567.890-12 - Prioridade: SIM
-2. Ana Costa - Idade: 72 - CPF: 456.789.012-34 - Prioridade: SIM
-3. Carlos Mendes - Idade: 28 - CPF: 567.890.123-45 - Prioridade: SIM
-```
-
-### **Sistema com Prioridade Avançada**
-```
-=== NOVO EXERCÍCIO: ESTATÍSTICAS E RELATÓRIOS ===
-
-=== SISTEMA COMPLETO COM RELATÓRIOS ===
-1. SIMULAÇÃO DE UM DIA COMPLETO NA CLÍNICA:
-
-📅 CHEGADAS AO LONGO DO DIA:
-[MANHÃ] Chegou: Roberto Silva
-👤 NORMAL: Roberto Silva adicionado na fila normal
-[MANHÃ] Chegou: Fernanda Costa
-👴 IDOSO: Fernanda Costa adicionado na fila de idosos
-[MEIO-DIA] Chegou: Amanda Urgente
-🚨 URGENTE: Amanda Urgente adicionado na fila de emergência
-[TARDE] Chegou: Sophia Crítica
-🚨 URGENTE: Sophia Crítica adicionado na fila de emergência
-
-=== ESTADO COMPLETO DA FILA DE PRIORIDADE ===
-
-🚨 FILA URGENTE (3 pacientes):
-   1. Amanda Urgente (Idade: 41)
-   2. Paulo Emergência (Idade: 52)
-   3. Sophia Crítica (Idade: 36)
-
-👴 FILA IDOSOS (5 pacientes):
-   1. Fernanda Costa (Idade: 67)
-   2. Joaquim Idoso (Idade: 78)
-   3. Rosana Sênior (Idade: 63)
-```
-
-### **Relatório Diário Exportado (relatorio_clinica.txt)**
-```
 ============================================================
-===        RELATÓRIO DIÁRIO DE ATENDIMENTOS         ===
-===          CLÍNICA UNIVERSITÁRIA                  ===
+📋 MENU PRINCIPAL - SISTEMA DA CLÍNICA UNIVERSITÁRIA
 ============================================================
+1️⃣  Fila Simples com Banco de Dados (PostgreSQL)
+2️⃣  Teste da Fila Original (ArrayList)
+3️⃣  Teste da Fila Circular (Array Fixo)
+4️⃣  Teste da Fila Encadeada (Linked List)
+5️⃣  Teste de Prioridade e Complexidade
+6️⃣  Comparação de Performance
+7️⃣  Executar Todos os Testes
+0️⃣  Sair
+------------------------------------------------------------
+📝 Escolha uma opção: 1
 
-Data/Hora do Relatório: 25/09/2025 20:23:27
+============================================================
+🗄️  TESTE: FILA SIMPLES COM BANCO DE DADOS
+============================================================
+✅ Conexão com banco de dados estabelecida com sucesso!
 
-📊 ESTATÍSTICAS GERAIS:
-----------------------------------------------------------
-Total de pacientes atendidos: 15
-Média de idade: 45,5 anos
-Paciente mais idoso: Joaquim Idoso (78 anos)
-Paciente mais jovem: Carla Jovem (19 anos)
+--------------------------------------------------
+🏥 MENU DA FILA COM BANCO DE DADOS
+--------------------------------------------------
+1️⃣  Adicionar Paciente
+2️⃣  Ver Fila Atual
+3️⃣  Chamar Próximo Paciente
+4️⃣  Finalizar Atendimento
+5️⃣  Consultar Posição de Paciente
+6️⃣  Remover Paciente da Fila
+7️⃣  Estatísticas de Hoje
+8️⃣  Listar Atendidos Hoje
+9️⃣  Carregar Dados de Exemplo
+0️⃣  Voltar ao Menu Principal
+--------------------------------------------------
+📝 Escolha uma opção: 2
 
-🚨 DISTRIBUIÇÃO POR PRIORIDADE:
-----------------------------------------------------------
-Casos urgentes atendidos: 3
-Pacientes idosos atendidos: 5
-Pacientes normais atendidos: 7
-
-📈 PERCENTUAIS:
-----------------------------------------------------------
-Urgentes: 20,0%
-Idosos: 33,3%
-Normais: 46,7%
-
-📋 LISTA COMPLETA DE ATENDIDOS:
-----------------------------------------------------------
-1. URGENTE - Amanda Urgente (Idade: 41, CPF: 400.400.400-40)
-2. URGENTE - Paulo Emergência (Idade: 52, CPF: 700.700.700-70)
-3. URGENTE - Sophia Crítica (Idade: 36, CPF: 101.101.101-01)
-4. IDOSO - Fernanda Costa (Idade: 67, CPF: 200.200.200-20)
-5. IDOSO - Joaquim Idoso (Idade: 78, CPF: 500.500.500-50)
-...
-15. NORMAL - Eduardo Final (Idade: 45, CPF: 606.606.606-06)
+📋 FILA ATUAL DE ATENDIMENTO:
+=====================================================================================
+POS  NOME                 IDADE CPF             PRIORIDADE   ESPERA
+-------------------------------------------------------------------------------------
+1    Carlos Urgente       35    222.222.222-22 URGENTE      5 min
+2    Sofia Crítica        55    888.888.888-88 URGENTE      3 min
+3    Maria Santos         65    234.567.890-12 IDOSO        8 min
+4    Ana Costa            72    456.789.012-34 IDOSO        6 min
+5    João Silva           45    123.456.789-01 NORMAL       10 min
+6    Pedro Oliveira       30    345.678.901-23 NORMAL       7 min
+-------------------------------------------------------------------------------------
+📊 Total de pacientes na fila: 6
 ```
 
-## 🔧 Conceitos de Estruturas de Dados Demonstrados
+### **📊 Relatórios e Estatísticas**
+```
+📊 ESTATÍSTICAS DE HOJE:
+==================================================
+📈 Total de atendimentos: 15
+🚨 Casos urgentes: 3
+👴 Pacientes idosos: 7
+📊 Idade média: 52.4 anos
+⏰ Tempo médio de espera: 12.8 min
+📊 Taxa de urgência: 20.0%
+📊 Taxa de idosos: 46.7%
+```
 
-### 📚 **Análise de Complexidade**
+## 🔗 **Documentação Adicional**
 
-| Implementação | Inserção | Remoção | Espaço | Vantagens |
-|---------------|----------|---------|---------|-----------|
-| **Fila Array** | O(1) | O(n)* | O(n) fixo | Simples, acesso rápido |
-| **Fila Circular** | O(1) | O(1) | O(n) otimizado | Sem desperdício de espaço |
-| **Fila Encadeada** | O(1) | O(1) | O(n) dinâmico | Flexibilidade total |
-| **Fila Prioridade** | O(1)/O(n) | O(1) | O(n) | Atendimento inteligente |
+- **📄 README-DATABASE.md** - Documentação completa do banco de dados
+- **🗄️ database.properties** - Configurações de conexão
+- **🐳 docker-compose.yml** - Configuração do PostgreSQL
+- **📜 Scripts SQL** - Estrutura completa do banco em `database/init/`
 
-*O(n) apenas se houver deslocamento de elementos
+## 🎯 **Conceitos Demonstrados**
 
-### 🏆 **Quando Usar Cada Estrutura**
+### **📚 Estruturas de Dados**
+- ✅ Fila (Queue) - FIFO
+- ✅ Lista (List) - Operações CRUD
+- ✅ Fila Circular - Otimização de espaço
+- ✅ Lista Encadeada - Memória dinâmica
+- ✅ Fila de Prioridade - Ordenação automática
 
-- **Fila Circular**: Quando o tamanho máximo é conhecido e deseja-se otimizar espaço
-- **Fila Encadeada**: Quando não há limite de tamanho e inserções/remoções são frequentes  
-- **Fila de Prioridade**: Quando existe hierarquia natural de atendimento
-- **Array Simples**: Para implementações básicas e didáticas
+### **🧠 Algoritmos e Complexidade**
+- ✅ Análise Big O - Tempo e espaço
+- ✅ Trade-offs - Memória vs Performance
+- ✅ Otimização - Diferentes estratégias
+- ✅ Comparação - Benchmarks práticos
 
-## 🎓 Aplicação Pedagógica
+### **🗄️ Persistência e Banco de Dados**
+- ✅ JDBC - Conexão Java-PostgreSQL
+- ✅ SQL Avançado - Triggers, Views, Functions
+- ✅ Docker - Containerização
+- ✅ Transações - Integridade de dados
 
-Este sistema é ideal para:
-- **Compreender FIFO**: Como filas funcionam na prática
-- **Implementar prioridades**: Adaptação de estruturas básicas
-- **Comparar implementações**: Análise de eficiência e complexidade
-- **Praticar busca**: Algoritmos de localização em listas
-- **Modelar problemas reais**: Traduzir situações do cotidiano em código
-- **Gerenciar estados**: Controle de múltiplas estruturas simultaneamente
-- **Gerar relatórios**: Processamento e exportação de dados
+### **🏗️ Engenharia de Software**
+- ✅ Padrão MVC - Separação de responsabilidades
+- ✅ POO - Encapsulamento e abstração
+- ✅ Clean Code - Código legível e mantível
+- ✅ Documentação - README e comentários
 
-## 📝 Exercícios Propostos
+## 👨‍💻 **Desenvolvido por**
 
-### **Nível Básico**
-1. Modificar critérios de prioridade (tipo de convênio)
-2. Implementar cancelamento de consultas
-3. Adicionar campo "especialidade médica"
-
-### **Nível Intermediário**
-4. Criar fila com múltiplas prioridades numéricas
-5. Implementar tempo de espera estimado
-6. Adicionar histórico de horários de atendimento
-
-### **Nível Avançado**
-7. Implementar heap para fila de prioridade
-8. Criar dashboard em tempo real
-9. Integrar com banco de dados
-10. Adicionar métricas de desempenho do sistema
-
-## 📁 Arquivos de Relatório Gerados
-
-O sistema gera automaticamente os seguintes relatórios:
-
-- **`relatorio_clinica.txt`**: Relatório diário completo com estatísticas
-- **`Relatorio.txt`**: Log de execução do sistema básico  
-- **`Relatorio2.txt`**: Comparação entre implementações
-- **`relatorio3.txt`**: Demonstração do sistema avançado com prioridades
+**Curso:** ADS1232 - Estruturas de Dados  
+**Data:** Setembro 2024  
+**Versão:** 2.0 - Sistema Completo com Banco de Dados
 
 ---
 
-**Desenvolvido para fins educacionais** - Demonstração prática de Estruturas de Dados em Java
+🏥 **Sistema de Atendimento da Clínica Universitária** - Demonstrando estruturas de dados na prática com persistência real!

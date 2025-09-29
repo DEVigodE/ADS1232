@@ -1,38 +1,24 @@
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Arquivos de banco de dados e Docker
+*.log
+*.sql.backup
+pgdata/
+postgres-data/
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
-*.iml
-*.ipr
+# Arquivos temporários do Windows
+Thumbs.db
+Desktop.ini
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Arquivos de configuração local
+.env
+*.local.properties
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Logs do Docker
+docker-compose.override.yml
 
-### VS Code ###
-.vscode/
+# Arquivos de backup
+backup_*.sql
+dump_*.sql
 
-### Mac OS ###
-.DS_Store
+# Arquivos temporários do sistema
+*.tmp
+*.temp
