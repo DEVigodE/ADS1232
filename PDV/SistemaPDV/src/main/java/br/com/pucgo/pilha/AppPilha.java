@@ -10,6 +10,15 @@ public class AppPilha {
         PilhaEncadeada<Cliente> pilhaClientes = new PilhaEncadeada<>();
         PilhaEncadeada<Pedido> pilhaPedidos = new PilhaEncadeada<>();
 
+        // Criar empresa e vendedor
+        Empresa empresa = new Empresa(
+                "98.765.432/0001-10",
+                "Store Express",
+                "Store Express Comércio LTDA",
+                new Endereco("Rua Comercial", "500", null, "Setor Marista", "Goiânia", "GO", "74150-000")
+        );
+        Vendedor vendedor = new Vendedor("Maria Costa", "987.654.321-00", "maria@store.com");
+
         // Empilhar clientes (último que chega será atendido primeiro)
         pilhaClientes.empilhar(new Cliente(
                 "44444444444",
@@ -36,7 +45,7 @@ public class AppPilha {
         // Atender clientes em ordem LIFO e gerar pedidos
         while (!pilhaClientes.estaVazia()) {
             Cliente c = pilhaClientes.desempilhar();
-            Pedido p = new Pedido(c);
+            Pedido p = new Pedido(c, vendedor, empresa);
             p.adicionarItem(new ItemPedido("Tênis", 1, new BigDecimal("199.90")));
             p.adicionarItem(new ItemPedido("Meias", 3, new BigDecimal("9.90")));
             p.aplicarDesconto(new BigDecimal("5.00"));
@@ -54,4 +63,3 @@ public class AppPilha {
         System.out.println("\nFluxo com pilha concluído.");
     }
 }
-

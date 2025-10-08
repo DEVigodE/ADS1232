@@ -11,6 +11,15 @@ public class AppFila {
         FilaSimples<Cliente> filaClientes = new FilaSimples<>(10);
         FilaSimples<Pedido> filaPedidos = new FilaSimples<>(10);
 
+        // Criar empresa e vendedor
+        Empresa empresa = new Empresa(
+                "12.345.678/0001-90",
+                "Loja Demo",
+                "Loja Demo Comércio LTDA",
+                new Endereco("Av. Central", "1000", null, "Centro", "Goiânia", "GO", "74000-000")
+        );
+        Vendedor vendedor = new Vendedor("João Silva", "123.456.789-00", "joao@loja.com");
+
         // Cadastrar alguns clientes (enfileirar)
         filaClientes.enfileirar(new Cliente(
                 "11111111111",
@@ -37,7 +46,7 @@ public class AppFila {
         // Atender clientes por ordem de chegada e gerar pedidos
         while (!filaClientes.estaVazia()) {
             Cliente c = filaClientes.desenfileirar();
-            Pedido p = new Pedido(c);
+            Pedido p = new Pedido(c, vendedor, empresa);
             p.adicionarItem(new ItemPedido("Camiseta", 2, new BigDecimal("49.90")));
             p.adicionarItem(new ItemPedido("Calça", 1, new BigDecimal("129.90")));
             p.aplicarDesconto(new BigDecimal("10.00"));

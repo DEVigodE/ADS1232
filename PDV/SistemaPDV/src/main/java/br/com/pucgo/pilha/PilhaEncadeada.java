@@ -1,36 +1,30 @@
 package br.com.pucgo.pilha;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.NoSuchElementException;
 
 public class PilhaEncadeada<T> {
-    private static class No<E> {
-        E valor;
-        No<E> prox;
-        No(E valor, No<E> prox) { this.valor = valor; this.prox = prox; }
+    private final Deque<T> pilha;
+
+    public PilhaEncadeada() {
+        this.pilha = new ArrayDeque<>();
     }
 
-    private No<T> topo;
-    private int tamanho;
-
     public void empilhar(T elemento) {
-        topo = new No<>(elemento, topo);
-        tamanho++;
+        pilha.addFirst(elemento);
     }
 
     public T desempilhar() {
         if (estaVazia()) throw new NoSuchElementException("Pilha vazia");
-        T v = topo.valor;
-        topo = topo.prox;
-        tamanho--;
-        return v;
+        return pilha.removeFirst();
     }
 
     public T espiar() {
         if (estaVazia()) throw new NoSuchElementException("Pilha vazia");
-        return topo.valor;
+        return pilha.peekFirst();
     }
 
-    public boolean estaVazia() { return topo == null; }
-    public int tamanho() { return tamanho; }
+    public boolean estaVazia() { return pilha.isEmpty(); }
+    public int tamanho() { return pilha.size(); }
 }
-
