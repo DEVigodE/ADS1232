@@ -48,6 +48,10 @@ O objetivo é praticar conceitos de **POO** como:
 │   │   ├── src/...
 │   │   └── pom.xml
 │   └── umlPDV*.png     # Diagramas UML do Sistema PDV
+├── Biblioteca/         # Sistema de Biblioteca com modelo, serviço e testes
+│   ├── pom.xml
+│   ├── README.md       # README específico do projeto Biblioteca
+│   └── src/...         # Código-fonte do projeto Biblioteca
 │
 └── listaN/
     ├── src/...
@@ -58,6 +62,7 @@ O objetivo é praticar conceitos de **POO** como:
 - A pasta `PDV/` contém o **Sistema de Ponto de Venda (SistemaPDV)**, um projeto prático que implementa estruturas de dados avançadas.
 - A pasta `ControlePratosCantina/` contém o **Sistema de Controle de Pratos**, uma aplicação prática de pilhas em contexto realista.
 - A pasta `AtendimentoClinicaUniversitaria/` contém o **Sistema de Atendimento da Clínica**, demonstrando uso prático de filas e listas.
+- A pasta `Biblioteca/` contém o **Sistema de Biblioteca**, um projeto educativo de gerenciamento de biblioteca.
 - O `README.md` raiz (este arquivo) serve como guia geral do repositório.  
 
 ---
@@ -71,6 +76,7 @@ O objetivo é praticar conceitos de **POO** como:
 - **[Controle de Pratos na Cantina](./ControlePratosCantina/README.md)** → **🆕 Aplicação Prática de Pilhas** - Sistema realista de controle de pratos usando estrutura LIFO.
 - **[Atendimento da Clínica Universitária](./AtendimentoClinicaUniversitaria/README.md)** → **🆕 Sistema com Filas e Listas** - Demonstra uso combinado de Queue (fila de pacientes) e List (pacientes atendidos) com sistema de prioridade, estatísticas e relatórios.
 - **[Sistema PDV](./PDV/)** → **Sistema de Ponto de Venda** - Aplicação prática de **Pilhas** e **Filas** em um sistema comercial completo.
+- **[Biblioteca](./Biblioteca/README.md)** → Sistema de gerenciamento de biblioteca educativo: modelagem de classes (Livro, Aluno, Emprestimo, etc.), serviços e testes com Maven.
 
 ---
 
@@ -104,15 +110,19 @@ O objetivo é praticar conceitos de **POO** como:
    - **Sistema PDV** (Pilhas e Filas):
      ```bash
      cd PDV/SistemaPDV
-     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.fila.AppFila"
+     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.fila.App"
      # ou para aplicação com pilhas
-     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.pilha.AppPilha"
+     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.pilha.App"
+     ```
+   - **Biblioteca**:
+     ```bash
+     cd Biblioteca
+     mvn clean compile exec:java -Dexec.mainClass="br.com.pucgo.App"
+     # ou executar exercícios separadamente:
+     # mvn compile exec:java -Dexec.mainClass="br.com.pucgo.exercicio1.App"
+     # mvn compile exec:java -Dexec.mainClass="br.com.pucgo.exercicio2.App"
      ```
 
-     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.App"
-     # ou executar exercícios separadamente:
-     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.exercicio1.App"
-     mvn compile exec:java -Dexec.mainClass="br.com.pucgo.exercicio2.App"
 ## 🎯 Destaques por Lista
 
 - **Lista 1**: Fundamentos de POO, encapsulamento e modelagem básica
@@ -137,6 +147,11 @@ O objetivo é praticar conceitos de **POO** como:
   - 👤 Modelagem completa (Cliente, Pedido, ItemPedido, Endereço)
   - 🔄 Estados de pedido (PedidoStatus)
   - 📊 Diagramas UML detalhados
+- **Biblioteca**: **Sistema de Gerenciamento de Biblioteca** - Projeto educativo com:
+  - 📚 Modelagem de classes (Livro, Aluno, Emprestimo, etc.)
+  - 🛠️ Serviços para gerenciamento de empréstimos e devoluções
+  - 📦 Estrutura de diretórios organizada com modelo, serviço e testes
+  - 🔄 Integração com Maven para build e execução
 
 ---
 
@@ -193,3 +208,5 @@ O **Sistema de Atendimento da Clínica** é uma aplicação educativa que demons
 - A **Lista 4** foi adicionada recentemente ao repositório.
 - O **Sistema PDV** combina **Pilhas** e **Filas** em uma aplicação comercial real, demonstrando o uso prático dessas estruturas em sistemas de produção.
 - **🆕 Atendimento da Clínica Universitária** - Novo sistema demonstrando o uso de filas e listas em um contexto de atendimento médico, com gerenciamento de pacientes, prioridades, estatísticas e relatórios.
+- **🆕 Projeto Biblioteca** - Adição do sistema de gerenciamento de biblioteca, com modelagem de classes, serviços e integração com Maven. Veja o [README da Biblioteca](./Biblioteca/README.md) para detalhes.
+
