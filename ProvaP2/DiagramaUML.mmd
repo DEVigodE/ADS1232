@@ -1,0 +1,129 @@
+classDiagram
+    %% Interface e Classe Abstrata
+    class Setor {
+        <<interface>>
+        +registrarUsuario(Usuario) void
+        +atender() Usuario
+        +exibirEstado() void
+        +getNomeSetor() String
+        +quantidadeAguardando() int
+    }
+
+    class SetorBase {
+        <<abstract>>
+        #nomeSetor: String
+        +SetorBase(String)
+        +getNomeSetor() String
+        #exibirCabecalho() void
+        +quantidadeAguardando() int*
+    }
+
+    %% Classes de Modelo
+    class Usuario {
+        -nome: String
+        -documento: String
+        -prioridade: int
+        +Usuario(String, String)
+        +Usuario(String, String, int)
+        +getNome() String
+        +setNome(String) void
+        +getDocumento() String
+        +setDocumento(String) void
+        +getPrioridade() int
+        +setPrioridade(int) void
+        +toString() String
+    }
+
+    class RegistroAtendimento {
+        -usuario: Usuario
+        -setor: String
+        -dataHora: LocalDateTime
+        +RegistroAtendimento(Usuario, String)
+        +getUsuario() Usuario
+        +getSetor() String
+        +getDataHora() LocalDateTime
+        +toString() String
+    }
+
+    %% Classes de Setores (implementações concretas)
+    class CentralSuporte {
+        -fila: Queue~Usuario~
+        +CentralSuporte()
+        +registrarUsuario(Usuario) void
+        +atender() Usuario
+        +exibirEstado() void
+        +quantidadeAguardando() int
+    }
+
+    class LaboratorioProjetos {
+        -pilha: Stack~Usuario~
+        +LaboratorioProjetos()
+        +registrarUsuario(Usuario) void
+        +atender() Usuario
+        +exibirEstado() void
+        +quantidadeAguardando() int
+    }
+
+    class SecretariaAcademica {
+        -filaPrioridade: PriorityQueue~Usuario~
+        +SecretariaAcademica()
+        +registrarUsuario(Usuario) void
+        +atender() Usuario
+        +exibirEstado() void
+        +quantidadeAguardando() int
+    }
+
+    %% Classes do Sistema
+    class HistoricoAtendimento {
+        -historico: List~RegistroAtendimento~
+        -ultimoAtendimento: RegistroAtendimento
+        +HistoricoAtendimento()
+        +adicionarRegistro(Usuario, String) void
+        +getUltimoAtendimento() RegistroAtendimento
+        +exibirHistorico() void
+        +exibirUltimoAtendimento() void
+        +getTotalAtendimentos() int
+        +getHistorico() List~RegistroAtendimento~
+    }
+
+    class SistemaAtendimento {
+        -setores: Map~String, Setor~
+        -historico: HistoricoAtendimento
+        +SistemaAtendimento()
+        -inicializarSetores() void
+        +registrarUsuario(String, Usuario) void
+        +realizarAtendimento(String) void
+        +exibirEstadoSetor(String) void
+        +exibirEstadoTodosSetores() void
+        +consultarUltimoAtendimento() void
+        +exibirHistoricoCompleto() void
+        +getHistorico() HistoricoAtendimento
+        +getSetor(String) Setor
+    }
+
+    class App {
+        +main(String[]) void
+    }
+
+    %% Relacionamentos - Interface e Herança
+    Setor <|.. SetorBase : implements
+    SetorBase <|-- CentralSuporte : extends
+    SetorBase <|-- LaboratorioProjetos : extends
+    SetorBase <|-- SecretariaAcademica : extends
+
+    %% Relacionamentos - Composição e Agregação
+    SistemaAtendimento o-- Setor : contains
+    SistemaAtendimento *-- HistoricoAtendimento : has
+    HistoricoAtendimento o-- RegistroAtendimento : stores
+    RegistroAtendimento --> Usuario : references
+    CentralSuporte --> Usuario : manages
+    LaboratorioProjetos --> Usuario : manages
+    SecretariaAcademica --> Usuario : manages
+    App ..> SistemaAtendimento : uses
+    App ..> Usuario : creates
+
+    %% Notas explicativas
+    note for CentralSuporte "Política: FIFO\n(First In First Out)\nQueue - LinkedList"
+    note for LaboratorioProjetos "Política: LIFO\n(Last In First Out)\nStack"
+    note for SecretariaAcademica "Política: Por Prioridade\nMenor valor = maior prioridade\nPriorityQueue"
+

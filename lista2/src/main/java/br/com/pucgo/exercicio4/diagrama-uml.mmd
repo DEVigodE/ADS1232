@@ -1,0 +1,73 @@
+classDiagram
+    class Sexo {
+        <<enumeration>>
+        MASCULINO
+        FEMININO
+        OUTRO
+    }
+
+    class Passageiro {
+        -String nome
+        -Sexo sexo
+        -Date dataDeNascimento
+        -String email
+
+        +Passageiro(String nome, Sexo sexo, Date dataDeNascimento, String email)
+        +String getNome()
+        +void setNome(String nome)
+        +Sexo getSexo()
+        +void setSexo(Sexo sexo)
+        +Date getDataDeNascimento()
+        +void setDataDeNascimento(Date dataDeNascimento)
+        +String getEmail()
+        +String toString()
+    }
+
+    class CentralDeInformacoes {
+        -ArrayList~Passageiro~ todosOsPassageiros
+
+        +CentralDeInformacoes()
+        +boolean adicionarPassageiro(Passageiro passageiro)
+        +Passageiro recuperarPassageiroPeloEmail(String email)
+        +ArrayList~Passageiro~ getTodosOsPassageiros()
+        +void setTodosOsPassageiros(ArrayList~Passageiro~ todosOsPassageiros)
+        +int getTotalPassageiros()
+        +String exibirInformacoesPassageiro(Passageiro passageiro)
+        +int calcularIdade(Date dataDeNascimento)
+        +String listarTodosPassageiros()
+        +boolean temPassageiros()
+        -boolean temIdadeMinima(Date dataDeNascimento)
+    }
+
+    class Persistencia {
+        -XStream xstream
+
+        +Persistencia()
+        +boolean salvarCentral(CentralDeInformacoes central, String nomeArquivo)
+        +CentralDeInformacoes recuperarCentral(String nomeArquivo)
+    }
+
+    class App {
+        -String ARQUIVO_DADOS$
+        -CentralDeInformacoes central$
+        -Persistencia persistencia$
+        -Scanner scanner$
+
+        +main(String[] args)$ void
+        -inicializarSistema()$ void
+        -exibirMenu()$ void
+        -cadastrarNovoPassageiro()$ void
+        -coletarSexo()$ Sexo
+        -coletarDataNascimento()$ Date
+        -listarTodosPassageiros()$ void
+        -exibirInformacoesPassageiro()$ void
+        -salvarDados()$ void
+    }
+
+    Passageiro --> Sexo : uses
+    CentralDeInformacoes --> Passageiro : manages
+    Persistencia --> CentralDeInformacoes : persists
+    App --> CentralDeInformacoes : uses
+    App --> Passageiro : creates
+    App --> Persistencia : uses
+

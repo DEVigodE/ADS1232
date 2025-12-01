@@ -1,0 +1,45 @@
+classDiagram
+    class Sexo {
+        <<enumeration>>
+        MASCULINO
+        FEMININO
+        OUTRO
+    }
+
+    class Passageiro {
+        -String nome
+        -Sexo sexo
+        -Date dataDeNascimento
+        -String email
+
+        +Passageiro(String nome, Sexo sexo, Date dataDeNascimento, String email)
+        +String getNome()
+        +void setNome(String nome)
+        +Sexo getSexo()
+        +void setSexo(Sexo sexo)
+        +Date getDataDeNascimento()
+        +void setDataDeNascimento(Date dataDeNascimento)
+        +String getEmail()
+        +String toString()
+    }
+
+    class CentralDeInformacoes {
+        -ArrayList~Passageiro~ todosOsPassageiros
+
+        +CentralDeInformacoes()
+        +boolean adicionarPassageiro(Passageiro passageiro)
+        +Passageiro recuperarPassageiroPeloEmail(String email)
+        +ArrayList~Passageiro~ getTodosOsPassageiros()
+        +void setTodosOsPassageiros(ArrayList~Passageiro~ todosOsPassageiros)
+        +int getTotalPassageiros()
+        -boolean temIdadeMinima(Date dataDeNascimento)
+    }
+
+    class App {
+        +main(String[] args)$ void
+    }
+
+    Passageiro --> Sexo : uses
+    CentralDeInformacoes --> Passageiro : manages
+    App --> CentralDeInformacoes : uses
+    App --> Passageiro : creates

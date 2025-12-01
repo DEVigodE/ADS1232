@@ -1,0 +1,11 @@
+br\com\pucgo\App.class
+br\com\pucgo\FilaPrioridadeAvancada.class
+br\com\pucgo\ListaDeAtendidos.class
+br\com\pucgo\FilaPrioridadeEncadeada$No.class
+br\com\pucgo\FilaPrioridadeEncadeada.class
+br\com\pucgo\Paciente.class
+br\com\pucgo\FilaDePacientes.class
+br\com\pucgo\FilaEncadeadaDePacientes$No.class
+br\com\pucgo\FilaCircularDePacientes.class
+br\com\pucgo\FilaSimplesDatabaseService.class
+br\com\pucgo\FilaEncadeadaDePacientes.class

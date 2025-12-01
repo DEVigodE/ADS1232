@@ -1,0 +1,251 @@
+=== SISTEMA DE ATENDIMENTO - CLÍNICA UNIVERSITÁRIA ===
+
+=== TESTE 1: FILA ORIGINAL (ArrayList) ===
+--------------------------------------------------
+1. ADICIONANDO PACIENTES NA FILA:
+----------------------------------------
+Paciente João Silva adicionado na fila normal
+Paciente Maria Santos adicionado na fila PRIORITÁRIA
+Paciente Pedro Oliveira adicionado na fila normal
+Paciente Ana Costa adicionado na fila PRIORITÁRIA
+Paciente Carlos Mendes adicionado na fila PRIORITÁRIA
+
+=== ESTADO DA FILA ===
+Fila Prioritária (3 pacientes):
+1. Maria Santos (Idade: 65)
+2. Ana Costa (Idade: 72)
+3. Carlos Mendes (Idade: 28)
+
+Fila Normal (2 pacientes):
+1. João Silva (Idade: 45)
+2. Pedro Oliveira (Idade: 30)
+========================
+
+2. ATENDENDO PACIENTES:
+----------------------------------------
+Atendendo paciente 1: Maria Santos
+Paciente Maria Santos foi atendido e adicionado à lista de atendidos
+
+Atendendo paciente 2: Ana Costa
+Paciente Ana Costa foi atendido e adicionado à lista de atendidos
+
+Atendendo paciente 3: Carlos Mendes
+Paciente Carlos Mendes foi atendido e adicionado à lista de atendidos
+
+3. PRÓXIMO PACIENTE A SER ATENDIDO:
+----------------------------------------
+Próximo: João Silva (Idade: 45, Prioridade: NÃO)
+
+4. LISTA DE PACIENTES ATENDIDOS:
+----------------------------------------
+
+=== PACIENTES ATENDIDOS ===
+1. Maria Santos - Idade: 65 - CPF: 234.567.890-12 - Prioridade: SIM
+2. Ana Costa - Idade: 72 - CPF: 456.789.012-34 - Prioridade: SIM
+3. Carlos Mendes - Idade: 28 - CPF: 567.890.123-45 - Prioridade: SIM
+Total de atendidos: 3
+============================
+
+5. ESTADO ATUAL DA FILA:
+----------------------------------------
+
+=== ESTADO DA FILA ===
+Fila Prioritária (0 pacientes):
+
+Fila Normal (2 pacientes):
+1. João Silva (Idade: 45)
+2. Pedro Oliveira (Idade: 30)
+========================
+
+6. DEMONSTRAÇÃO DE BUSCA:
+----------------------------------------
+✓ Paciente com CPF 234.567.890-12 já foi atendido: Maria Santos
+✗ Paciente com CPF 345.678.901-23 ainda não foi atendido.
+
+7. DESAFIO EXTRA - ESTATÍSTICAS:
+----------------------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 3
+Média de idade dos atendidos: 55,0 anos
+Pacientes com prioridade atendidos: 3
+Pacientes sem prioridade atendidos: 0
+=====================================
+
+8. FINALIZANDO ATENDIMENTOS:
+----------------------------------------
+Atendendo: João Silva
+Paciente João Silva foi atendido e adicionado à lista de atendidos
+Atendendo: Pedro Oliveira
+Paciente Pedro Oliveira foi atendido e adicionado à lista de atendidos
+
+9. ESTATÍSTICAS FINAIS:
+----------------------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 5
+Média de idade dos atendidos: 48,0 anos
+Pacientes com prioridade atendidos: 3
+Pacientes sem prioridade atendidos: 2
+=====================================
+
+
+=== TESTE 1 FINALIZADO ===
+
+=== TESTE 2: FILA CIRCULAR (Array Fixo) ===
+--------------------------------------------------
+1. ADICIONANDO PACIENTES NA FILA CIRCULAR:
+---------------------------------------------
+✓ Adicionado: Alice Ferreira
+✓ Adicionado: Bruno Lima
+✓ Adicionado: Carla Souza
+✓ Adicionado: Diego Pereira
+✓ Adicionado: Elena Martins
+
+Estado da fila: Tamanho = 5
+Próximo paciente: Alice Ferreira
+
+2. ATENDENDO PACIENTES (FILA CIRCULAR):
+---------------------------------------------
+Atendendo paciente 1: Alice Ferreira
+Paciente Alice Ferreira foi atendido e adicionado à lista de atendidos
+Atendendo paciente 2: Bruno Lima
+Paciente Bruno Lima foi atendido e adicionado à lista de atendidos
+Atendendo paciente 3: Carla Souza
+Paciente Carla Souza foi atendido e adicionado à lista de atendidos
+
+Estado da fila após atendimentos:
+Tamanho restante: 2
+Próximo paciente: Diego Pereira
+
+3. ADICIONANDO MAIS PACIENTES (TESTE CIRCULARIDADE):
+--------------------------------------------------
+✓ Adicionado: Felipe Santos (aproveitando espaço circular)
+✓ Adicionado: Gabriela Costa (aproveitando espaço circular)
+
+Tamanho final da fila: 4
+Finalizando atendimento: Diego Pereira
+Paciente Diego Pereira foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Elena Martins
+Paciente Elena Martins foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Felipe Santos
+Paciente Felipe Santos foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Gabriela Costa
+Paciente Gabriela Costa foi atendido e adicionado à lista de atendidos
+
+4. ESTATÍSTICAS FILA CIRCULAR:
+-----------------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 7
+Média de idade dos atendidos: 33,9 anos
+Pacientes com prioridade atendidos: 0
+Pacientes sem prioridade atendidos: 7
+=====================================
+
+
+=== TESTE 2 FINALIZADO ===
+
+=== TESTE 3: FILA ENCADEADA (Linked List) ===
+--------------------------------------------------
+1. ADICIONANDO PACIENTES NA FILA ENCADEADA:
+-----------------------------------------------
+✓ Adicionado: Hugo Oliveira
+✓ Adicionado: Isabela Rocha
+✓ Adicionado: Joaquim Silva
+✓ Adicionado: Karina Alves
+✓ Adicionado: Leonardo Dias
+
+Estado da fila: Tamanho = 5
+Próximo paciente: Hugo Oliveira
+
+2. ATENDENDO PACIENTES (FILA ENCADEADA):
+-----------------------------------------------
+Atendendo paciente 1: Hugo Oliveira
+Paciente Hugo Oliveira foi atendido e adicionado à lista de atendidos
+Atendendo paciente 2: Isabela Rocha
+Paciente Isabela Rocha foi atendido e adicionado à lista de atendidos
+Atendendo paciente 3: Joaquim Silva
+Paciente Joaquim Silva foi atendido e adicionado à lista de atendidos
+
+Estado da fila após atendimentos:
+Tamanho restante: 2
+Próximo paciente: Karina Alves
+
+3. ADICIONANDO MAIS PACIENTES (CAPACIDADE DINÂMICA):
+-------------------------------------------------------
+✓ Adicionado: Mariana Gomes (sem limite de capacidade)
+✓ Adicionado: Nicolas Barbosa (sem limite de capacidade)
+✓ Adicionado: Olívia Fernandes (sem limite de capacidade)
+
+Tamanho final da fila: 5
+Finalizando atendimento: Karina Alves
+Paciente Karina Alves foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Leonardo Dias
+Paciente Leonardo Dias foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Mariana Gomes
+Paciente Mariana Gomes foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Nicolas Barbosa
+Paciente Nicolas Barbosa foi atendido e adicionado à lista de atendidos
+Finalizando atendimento: Olívia Fernandes
+Paciente Olívia Fernandes foi atendido e adicionado à lista de atendidos
+
+4. ESTATÍSTICAS FILA ENCADEADA:
+--------------------------------------
+
+=== ESTATÍSTICAS DE ATENDIMENTO ===
+Total de pacientes atendidos: 8
+Média de idade dos atendidos: 39,4 anos
+Pacientes com prioridade atendidos: 0
+Pacientes sem prioridade atendidos: 8
+=====================================
+
+
+=== TESTE 3 FINALIZADO ===
+
+=== COMPARAÇÃO DAS IMPLEMENTAÇÕES ===
+--------------------------------------------------
+CARACTERÍSTICAS DAS IMPLEMENTAÇÕES:
+╔════════════════════════════════════════════════════════════════════╗
+║ IMPLEMENTAÇÃO        │ INSERÇÃO │ REMOÇÃO │ MEMÓRIA │ CAPACIDADE     ║
+╠════════════════════════════════════════════════════════════════════╣
+║ Fila Original        │   O(1)   │  O(n)   │ Dinâmica│ Ilimitada      ║
+║ (ArrayList)          │          │ (shift) │         │                ║
+╠════════════════════════════════════════════════════════════════════╣
+║ Fila Circular        │   O(1)   │  O(1)   │  Fixa   │ Limitada       ║
+║ (Array Fixo)         │          │         │         │ (definida)     ║
+╠════════════════════════════════════════════════════════════════════╣
+║ Fila Encadeada       │   O(1)   │  O(1)   │ Dinâmica│ Ilimitada      ║
+║ (Linked List)        │          │         │         │ (só memória)   ║
+╚════════════════════════════════════════════════════════════════════╝
+
+VANTAGENS E DESVANTAGENS:
+------------------------------
+
+🏥 FILA ORIGINAL (ArrayList):
+  ✓ Fácil implementação
+  ✓ Suporte a prioridade
+  ✗ Remoção custosa O(n) - desloca elementos
+  ✗ Ineficiente para muitas operações de dequeue
+
+🔄 FILA CIRCULAR (Array Fixo):
+  ✓ Inserção e remoção O(1)
+  ✓ Reutiliza espaço do array
+  ✓ Baixo overhead de memória
+  ✗ Capacidade limitada
+  ✗ Precisa dimensionamento correto
+
+🔗 FILA ENCADEADA (Linked List):
+  ✓ Inserção e remoção O(1)
+  ✓ Capacidade dinâmica ilimitada
+  ✓ Flexível para crescimento
+  ✗ Overhead de ponteiros
+  ✗ Localidade de memória pior
+
+📊 RECOMENDAÇÃO DE USO:
+-------------------------
+• Fila Circular: Para sistemas com capacidade conhecida e muitas operações
+• Fila Encadeada: Para sistemas com demanda variável e crescimento dinâmico
+• Fila Original: Para prototipagem rápida ou quando prioridade é necessária
+
+=== SISTEMA FINALIZADO ===

@@ -1,0 +1,10 @@
+<CentralDeInformacoes>
+  <todosOsPassageiros>
+    <Passageiro>
+      <nome>Igor de Oliveira</nome>
+      <sexo>MASCULINO</sexo>
+      <dataDeNascimento>2000-12-22 02:00:00.0 UTC</dataDeNascimento>
+      <email>igor@email.com</email>
+    </Passageiro>
+  </todosOsPassageiros>
+</CentralDeInformacoes>

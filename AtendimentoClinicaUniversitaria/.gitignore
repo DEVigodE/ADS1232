@@ -1,0 +1,24 @@
+# Arquivos de banco de dados e Docker
+*.log
+*.sql.backup
+pgdata/
+postgres-data/
+
+# Arquivos temporários do Windows
+Thumbs.db
+Desktop.ini
+
+# Arquivos de configuração local
+.env
+*.local.properties
+
+# Logs do Docker
+docker-compose.override.yml
+
+# Arquivos de backup
+backup_*.sql
+dump_*.sql
+
+# Arquivos temporários do sistema
+*.tmp
+*.temp
