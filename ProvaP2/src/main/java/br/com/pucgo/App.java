@@ -1,6 +1,10 @@
 package br.com.pucgo;
 
-
+public class App 
+{
+    public static void main( String[] args )
+    {
+        
         System.out.println("╚════════════════════════════════════════════════════════════╝");
         System.out.println("║  DEMONSTRAÇÃO CONCLUÍDA COM SUCESSO!                      ║");
         System.out.println("\n╔════════════════════════════════════════════════════════════╗");
@@ -81,15 +85,5 @@ package br.com.pucgo;
         System.out.println("║  Universidade - Gestão de Atendimentos                   ║");
         System.out.println("║  SISTEMA DE CONTROLE DE ATENDIMENTO MULTISSETORIAL       ║");
         System.out.println("╔════════════════════════════════════════════════════════════╗");
- * Sistema de Controle de Atendimento Multissetorial
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
     }
 }
